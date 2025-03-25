@@ -20,7 +20,7 @@ export default function MissionTable() {
         loading="lazy"
       />
       <p
-        className="md:text-4xl text-3xl font-carbon absolute md:top-[20%] top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="md:text-4xl min-[425px]:text-3xl text-xl font-carbon absolute md:top-[20%] top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
           background: "linear-gradient(180deg, #FB8C00 0%, #D63200 125.86%)",
           backgroundClip: "text",
@@ -33,12 +33,12 @@ export default function MissionTable() {
 
       <Flex
         vertical
-        className="absolute top-[28%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
+        className="absolute min-[425px]:top-[28%] top-[22%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
       >
         {missions.map((mission, index) => (
           <Flex key={index} className="w-full justify-between gap-3">
             <div
-              className="min-h-[40px] md:px-3 px-2 flex justify-center items-center "
+              className="md:h-[40px] h-auto md:px-3 px-2 flex justify-center items-center "
               style={{
                 borderRadius: "8.487px",
                 background: "#FFECDC",
@@ -46,14 +46,18 @@ export default function MissionTable() {
                   "0px 1.543px 1.543px 0px rgba(102, 57, 30, 0.25) inset",
               }}
             >
-              <div className="md:w-[220px] w-[200px]">
+              <div className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[8px]">
                 <span>{mission.title} </span>
                 <span className="text-[#FE0707] font-bold">
                   {mission.point} điểm
                 </span>
               </div>
             </div>
-            <CustomButton label="nhận" px="3" py="1" active={mission.active} />
+            <CustomButton
+              label="nhận"
+              active={mission.active}
+              className="px-3 py-1"
+            />
           </Flex>
         ))}
       </Flex>
