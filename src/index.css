@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "1FTV-VIP-Carbon";
+  src: url("../src/assets/fonts/1FTV-VIP-Carbon.otf");
+}
+
+@font-face {
+  font-family: "BD StreetSign Sans";
+  src: url("../src/assets/fonts/BDStreetSignSans_Variable.ttf");
+}
+
+@font-face {
+  font-family: "iCiel";
+  src: url("../src/assets/fonts/iCielPanton-Black.otf");
+}
+
+@theme {
+  --font-carbon: "1FTV-VIP-Carbon", sans-serif;
+  --font-bd-street-sign: "BD StreetSign Sans", sans-serif;
+  --font-iciel: "iCiel", sans-serif;
+}
+
+@utility custom-gradient-bg {
+  padding: 0.125rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(to bottom, #fd3136, #fee59e);
+}
+
+:root {
+  --color-brand-primary: #fc8b00;
+  --header-bg: #1f0404;
+  --text-color: #fff7c9;
+  --bg-color: #fff9eb;
+}
