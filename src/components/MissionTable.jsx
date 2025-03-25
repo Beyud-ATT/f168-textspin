@@ -33,7 +33,7 @@ export default function MissionTable() {
 
       <Flex
         vertical
-        className="absolute min-[425px]:top-[28%] top-[22%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
+        className="absolute min-[425px]:top-[28%] top-[23%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
       >
         {missions.map((mission, index) => (
           <Flex key={index} className="w-full justify-between gap-3">
@@ -46,7 +46,7 @@ export default function MissionTable() {
                   "0px 1.543px 1.543px 0px rgba(102, 57, 30, 0.25) inset",
               }}
             >
-              <div className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[8px]">
+              <div className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[10px]">
                 <span>{mission.title} </span>
                 <span className="text-[#FE0707] font-bold">
                   {mission.point} điểm
