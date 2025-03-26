@@ -52,6 +52,15 @@ function SendWordModalInner() {
     mutate(data, {
       onSuccess: () => {
         form.resetFields();
+        queryClient.invalidateQueries({
+          queryKey: ["getMe"],
+        });
+        queryClient.invalidateQueries({
+          queryKey: ["helpHistory"],
+        });
+        queryClient.invalidateQueries({
+          queryKey: ["sendAndRecvHistories"],
+        });
         closeModal();
       },
     });
