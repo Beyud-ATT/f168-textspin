@@ -12,6 +12,7 @@ import NumberTransition from "./NumberTransition";
 
 function CombineTextModalInner() {
   const { closeModal } = useModal();
+
   return (
     <div className="relative">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -53,8 +54,8 @@ function CombineTextModalInner() {
 export default function CombineTextModal() {
   const { isAuthenticated } = useAuth();
   const { me } = useGetMe();
-  const { completedCode } = me?.data || { completedCode: null };
-  // const { completedCode } = { completedCode: "F168-5184ea" };
+  const { uniqueWords } = me?.data || { uniqueWords: [] };
+  const isAvailable = uniqueWords.length >= 4;
 
   return (
     <CompoundModal>
@@ -62,12 +63,10 @@ export default function CombineTextModal() {
         render={(openModal) => (
           <Flex
             className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px]`}
-            onClick={isAuthenticated && completedCode ? openModal : undefined}
+            onClick={isAuthenticated && isAvailable ? openModal : undefined}
           >
             <Image
-              src={
-                isAuthenticated && completedCode ? ButtonBg : DeactiveButtonBg
-              }
+              src={isAuthenticated && isAvailable ? ButtonBg : DeactiveButtonBg}
               preview={false}
               alt="button-bg"
               loading="lazy"

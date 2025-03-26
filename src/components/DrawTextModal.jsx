@@ -38,7 +38,9 @@ function DrawTextModalInner() {
             label="Đóng"
             onClick={() => {
               closeModal();
-              queryClient.invalidateQueries(["getMe"]);
+              setTimeout(() => {
+                queryClient.invalidateQueries(["getMe"]);
+              }, 500);
             }}
             className={`md:px-7 py-1 !text-2xl`}
           />

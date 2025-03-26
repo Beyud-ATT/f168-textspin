@@ -1,41 +1,12 @@
-import { Form, Input } from "antd";
+import { Form, Input, Spin } from "antd";
 import useSubmitComments from "../hooks/useSubmitComments";
 import { toast } from "react-toastify";
-
-const comments = [
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-  {
-    name: "TRAPBOY_LONHOI",
-    content: "Chủ động quay chủ động hỏi còn lại bày đặt nói cách khác",
-  },
-];
+import useGetComments from "../hooks/useGetComments";
 
 export default function Comments() {
   const [form] = Form.useForm();
   const { mutate: submitComment } = useSubmitComments();
+  const { comments, isLoading } = useGetComments();
 
   const handleFinish = (values) => {
     submitComment(values, {
@@ -52,17 +23,23 @@ export default function Comments() {
   return (
     <div className="flex flex-col justify-center items-center lg:py-5 py-3 lg:gap-3 gap-5">
       <div className="flex flex-col gap-3 bg-white rounded-lg w-[95%] h-[388px] overflow-y-auto">
-        {comments.map((comment, index) => {
-          return (
-            <div
-              key={index}
-              className="flex lg:flex-row flex-col gap-2 text-[16px]"
-            >
-              <p className="text-[#FB8C00]">{comment.name}: </p>
-              <p>{comment.content}</p>
-            </div>
-          );
-        })}
+        {isLoading ? (
+          <div className="flex w-full h-full justify-center items-center">
+            <Spin size="large" />
+          </div>
+        ) : (
+          comments?.data?.map((comment, index) => {
+            return (
+              <div
+                key={index}
+                className="flex lg:flex-row flex-col gap-2 text-[16px]"
+              >
+                <p className="text-[#FB8C00] uppercase">{comment.username}: </p>
+                <p>{comment.message}</p>
+              </div>
+            );
+          })
+        )}
       </div>
 
       <Form

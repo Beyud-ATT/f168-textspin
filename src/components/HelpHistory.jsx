@@ -1,6 +1,7 @@
 import TableHeaderBG from "../assets/table-header-bg.png";
 import { Image, Spin } from "antd";
 import useHelpHistory from "../hooks/useHelpHistory";
+import dayjs from "dayjs";
 
 export default function HelpHistory({ hideHeader = false }) {
   const { helpHistory, isLoading } = useHelpHistory();
@@ -34,9 +35,11 @@ export default function HelpHistory({ hideHeader = false }) {
               className="flex justify-between items-center px-5 h-[44px]"
             >
               <div className="flex text-[12px] font-semibold items-center justify-between w-full border-b-[0.5px] border-[#D9D9D9] pb-2">
-                <p className="uppercase">{item.date}</p>
-                <p className="uppercase">{item.name}</p>
-                <p className="uppercase">{item.description}</p>
+                <p className="uppercase">
+                  {dayjs(item.completedAt).format("YYYY-MM-DD")}
+                </p>
+                <p className="uppercase">{item.anotherUsername}</p>
+                <p className="uppercase">Tặng bạn chữ {item.word}</p>
               </div>
             </div>
           ))}

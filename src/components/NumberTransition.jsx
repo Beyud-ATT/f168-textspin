@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Flex } from "antd";
 import { toast } from "react-toastify";
+import { matchWord } from "../services/accountAPI";
+import { useAuth } from "../assets/contexts/AuthContext";
 
 function CustomText({ text, className }) {
   return (
@@ -20,29 +22,27 @@ function CustomText({ text, className }) {
   );
 }
 
-function CompeleteCode({ text, className }) {
+export default function NumberTransition() {
+  const { isAuthenticated } = useAuth();
+  const [currentImage, setCurrentImage] = useState(1);
+  const [code, setCode] = useState("");
+
   function handleCopy() {
-    navigator.clipboard.writeText(text || "F168-5184ea");
+    navigator.clipboard.writeText(code);
     toast.success("Đã copy mã thành công");
   }
 
-  return (
-    <div
-      className={`p-1.5 flex items-center justify-center font-carbon text-5xl uppercase text-[#FFF9EA] cursor-pointer ${className}`}
-      style={{
-        borderRadius: 6.86,
-        border: "1px solid #FFF8E3",
-        background: "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)",
-      }}
-      onClick={handleCopy}
-    >
-      {text || "F168-5184ea"}
-    </div>
-  );
-}
-
-export default function NumberTransition() {
-  const [currentImage, setCurrentImage] = useState(1);
+  useEffect(() => {
+    async function handleCombineText() {
+      const res = await matchWord();
+      if (res.status === 200) {
+        setCode(res?.data);
+      }
+    }
+    if (isAuthenticated) {
+      handleCombineText();
+    }
+  }, [isAuthenticated]);
 
   const revealVariants = {
     hidden: { clipPath: "inset(0 100% 0 0)" },
@@ -55,26 +55,23 @@ export default function NumberTransition() {
     },
   };
 
-  const images = useMemo(
-    () => [
-      {
-        id: 1,
-        content: (
-          <Flex className="relative gap-1">
-            <CustomText text="F" />
-            <CustomText text="1" />
-            <CustomText text="6" />
-            <CustomText text="8" />
-          </Flex>
-        ),
-      },
-      {
-        id: 2,
-        content: <CompeleteCode />,
-      },
-    ],
-    []
-  );
+  const images = [
+    {
+      id: 1,
+      content: (
+        <Flex className="relative gap-1">
+          <CustomText text="F" />
+          <CustomText text="1" />
+          <CustomText text="6" />
+          <CustomText text="8" />
+        </Flex>
+      ),
+    },
+    {
+      id: 2,
+      content: <CompeleteCode code={code} />,
+    },
+  ];
 
   const handleTransition = useCallback(() => {
     setCurrentImage(currentImage === 1 ? 2 : 1);
@@ -108,7 +105,17 @@ export default function NumberTransition() {
             variants={revealVariants}
             className="absolute top-0 left-0 w-full h-full"
           >
-            <CompeleteCode />
+            <div
+              className={`p-1.5 flex items-center justify-center font-carbon text-5xl uppercase text-[#FFF9EA] cursor-pointer`}
+              style={{
+                borderRadius: 6.86,
+                border: "1px solid #FFF8E3",
+                background: "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)",
+              }}
+              onClick={handleCopy}
+            >
+              {code}
+            </div>
           </motion.div>
         )}
       </div>

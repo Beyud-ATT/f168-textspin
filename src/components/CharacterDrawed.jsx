@@ -24,6 +24,7 @@ export default function CharacterDrawed() {
 
         return (
           <div
+            key={index}
             wordText={index}
             className={`relative flex justify-center items-center 
                   md:w-[116px] md:h-[109px] w-[65px] h-[61px]

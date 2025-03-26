@@ -1,16 +1,15 @@
 import { Flex, Image } from "antd";
 import RightTableBg from "../assets/right-table-bg.png";
 import CustomButton from "./Button";
-
-const missions = [
-  { title: "Nạp tiền trong ngày", point: 300, active: true },
-  { title: "Nạp tiền trong ngày", point: 3000, active: false },
-  { title: "Đặt cược trong ngày", point: 8000, active: false },
-  { title: "Nạp tiền trong ngày", point: 300, active: false },
-  { title: "Giới thiệu người bạn trong ngày", point: 1, active: false },
-];
+import useGetMe from "../hooks/useGetMe";
+import { MISSION_TYPE } from "../utils/constant";
 
 export default function MissionTable() {
+  const { me } = useGetMe();
+  const { missions, totalDeposit, totalBet, totalInvite } = me?.data || {
+    missions: [],
+  };
+
   return (
     <div className="relative flex justify-center items-center">
       <Image
@@ -35,31 +34,69 @@ export default function MissionTable() {
         vertical
         className="absolute min-[425px]:top-[28%] top-[23%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
       >
-        {missions.map((mission, index) => (
-          <Flex key={index} className="w-full justify-between gap-3">
-            <div
-              className="md:h-[40px] h-auto md:px-3 px-2 flex justify-center items-center "
-              style={{
-                borderRadius: "8.487px",
-                background: "#FFECDC",
-                boxShadow:
-                  "0px 1.543px 1.543px 0px rgba(102, 57, 30, 0.25) inset",
-              }}
-            >
-              <div className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[10px]">
-                <span>{mission.title} </span>
-                <span className="text-[#FE0707] font-bold">
-                  {mission.point} điểm
-                </span>
+        {missions.map((mission, index) => {
+          const {
+            missionContentTemplete,
+            missionGoal,
+            isCompleted,
+            missionType,
+          } = mission;
+          let isAvailableToAccept = false;
+
+          if (missionType === MISSION_TYPE.DEPOSIT) {
+            isAvailableToAccept = totalDeposit >= missionGoal;
+          } else if (missionType === MISSION_TYPE.BET) {
+            isAvailableToAccept = totalBet >= missionGoal;
+          } else if (missionType === MISSION_TYPE.INVITE) {
+            isAvailableToAccept = totalInvite >= missionGoal;
+          }
+
+          const unit =
+            missionType === MISSION_TYPE.DEPOSIT ||
+            missionType === MISSION_TYPE.BET
+              ? "điểm"
+              : "";
+
+          const missionTitle = missionContentTemplete
+            .split(" ")
+            .map((element) => {
+              if (element === "%S") {
+                return (
+                  <span className="text-[#FE0707]">
+                    {missionGoal} {unit}
+                  </span>
+                );
+              }
+              return <span>{element}</span>;
+            });
+
+          return (
+            <Flex key={index} className="w-full justify-between gap-3">
+              <div
+                key={Math.random()}
+                className="md:h-[40px] h-auto md:px-3 px-2 flex justify-center items-center "
+                style={{
+                  borderRadius: "8.487px",
+                  background: "#FFECDC",
+                  boxShadow:
+                    "0px 1.543px 1.543px 0px rgba(102, 57, 30, 0.25) inset",
+                }}
+              >
+                <div
+                  key={`${Math.random()}_index`}
+                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[10px] flex gap-0.5"
+                >
+                  {missionTitle}
+                </div>
               </div>
-            </div>
-            <CustomButton
-              label="nhận"
-              active={mission.active}
-              className="px-3 py-1"
-            />
-          </Flex>
-        ))}
+              <CustomButton
+                label="nhận"
+                active={isAvailableToAccept && !isCompleted}
+                className="px-3 py-1"
+              />
+            </Flex>
+          );
+        })}
       </Flex>
     </div>
   );
