@@ -153,21 +153,6 @@ const CharacterAnimation = ({ restartFlag, randomWord = "1" }) => {
           {currentChar}
         </div>
       </div>
-
-      {/* <div className="mt-6">
-        {!isAnimating && (
-          <div className="flex flex-col items-center">
-            <button
-              onClick={handleRestart}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-            >
-              Roll Again
-            </button>
-          </div>
-        )}
-
-        {isAnimating && <div className="text-gray-400">Rolling...</div>}
-      </div> */}
     </div>
   );
 };

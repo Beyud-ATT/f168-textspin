@@ -9,10 +9,12 @@ import CustomButton from "./Button";
 import useRandomWord from "../hooks/useRandomWord";
 import { useAuth } from "../assets/contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
+import { useQueryClient } from "@tanstack/react-query";
 
 function DrawTextModalInner() {
   const { isOpen, closeModal } = useModal();
   const { randomWord } = useRandomWord(isOpen);
+  const queryClient = useQueryClient();
 
   return (
     <div className="relative">
@@ -27,14 +29,17 @@ function DrawTextModalInner() {
         <Flex vertical className="items-center gap-2">
           <CharacterAnimation
             restartFlag={isOpen}
-            randomWord={randomWord?.data?.data || "1"}
+            randomWord={randomWord?.data || "1"}
           />
           <p className="text-[#892700] md:text-3xl text-2xl text-center font-bold leading-[41px] font-carbon uppercase">
             BẠN ĐÃ RÚT CHỮ THÀNH CÔNG
           </p>
           <CustomButton
             label="Đóng"
-            onClick={closeModal}
+            onClick={() => {
+              closeModal();
+              queryClient.invalidateQueries(["getMe"]);
+            }}
             className={`md:px-7 py-1 !text-2xl`}
           />
         </Flex>

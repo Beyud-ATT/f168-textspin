@@ -1,30 +1,21 @@
 import useGetMe from "../hooks/useGetMe";
 
+const codes = ["F", "1", "6", "8"];
+
 export default function CharacterDrawed() {
   const { me } = useGetMe();
-  const { words } = me?.data || { words: [] };
-  const characters =
-    words.length > 0
-      ? words?.map((word) => {
-          if (word.wordText === "F") {
-            return { key: "F", count: word.count || 0 };
-          }
-          if (word.wordText === "1") {
-            return { key: "1", count: word.count || 0 };
-          }
-          if (word.wordText === "6") {
-            return { key: "6", count: word.count || 0 };
-          }
-          if (word.wordText === "8") {
-            return { key: "8", count: word.count || 0 };
-          }
-        })
-      : [
-          { key: "F", count: 0 },
-          { key: "1", count: 0 },
-          { key: "6", count: 0 },
-          { key: "8", count: 0 },
-        ];
+  const { words, uniqueWords } = me?.data || { words: [], uniqueWords: [] };
+
+  let characters = [];
+
+  for (const code of codes) {
+    if (uniqueWords.indexOf(code) < 0) {
+      characters.push({ wordText: code, count: 0 });
+    } else {
+      const wordData = words.filter((character) => character.wordText === code);
+      characters.push(wordData[0]);
+    }
+  }
 
   return (
     <div className="w-full flex justify-center items-center md:gap-5 gap-2">
@@ -33,7 +24,7 @@ export default function CharacterDrawed() {
 
         return (
           <div
-            key={index}
+            wordText={index}
             className={`relative flex justify-center items-center 
                   md:w-[116px] md:h-[109px] w-[65px] h-[61px]
                   rounded-xl border-[1.8px] border-[#FFF8E3]`}
@@ -44,7 +35,7 @@ export default function CharacterDrawed() {
             }}
           >
             <span className="text-white font-bold md:text-7xl text-5xl -translate-y-1.5">
-              {character.key}
+              {character.wordText}
             </span>
             {isAvailable && (
               <span className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 text-white font-bold text-sm rounded-full bg-[#7A190D] py-1 px-2.5">
