@@ -42,4 +42,14 @@ async function matchWord() {
   }
 }
 
-export { getMe, sendAndRecvHistories, randomWord, matchWord };
+async function sendWord(data) {
+  try {
+    const res = await axoisBase.post(`${endpoint}/send-word`, data);
+    return res;
+  } catch (error) {
+    console.error("Error in sendWord:", error);
+    // throw error;
+  }
+}
+
+export { getMe, sendAndRecvHistories, randomWord, matchWord, sendWord };

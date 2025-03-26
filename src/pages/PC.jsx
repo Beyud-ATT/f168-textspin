@@ -14,6 +14,7 @@ import MissionTable from "../components/MissionTable";
 import CombineTextHistory from "../components/CombineTextHistory";
 import HelpHistory from "../components/HelpHistory";
 import Comments from "../components/Comments";
+import SendWordModal from "../components/SendWordModal";
 
 export default function PC() {
   return (
@@ -80,6 +81,7 @@ export default function PC() {
         <Flex justify="center" align="center" className="w-full gap-5">
           <DrawTextModal />
           <CombineTextModal />
+          <SendWordModal />
         </Flex>
       </Flex>
 

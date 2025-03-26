@@ -55,24 +55,6 @@ export default function NumberTransition() {
     },
   };
 
-  const images = [
-    {
-      id: 1,
-      content: (
-        <Flex className="relative gap-1">
-          <CustomText text="F" />
-          <CustomText text="1" />
-          <CustomText text="6" />
-          <CustomText text="8" />
-        </Flex>
-      ),
-    },
-    {
-      id: 2,
-      content: <CompeleteCode code={code} />,
-    },
-  ];
-
   const handleTransition = useCallback(() => {
     setCurrentImage(currentImage === 1 ? 2 : 1);
   }, [currentImage]);
@@ -95,7 +77,12 @@ export default function NumberTransition() {
     <div className="flex flex-col items-center justify-center">
       <div className="relative w-64 h-16">
         {currentImage === 1 ? (
-          images[0].content
+          <Flex className="relative gap-1">
+            <CustomText text="F" />
+            <CustomText text="1" />
+            <CustomText text="6" />
+            <CustomText text="8" />
+          </Flex>
         ) : (
           <motion.div
             key={currentImage}

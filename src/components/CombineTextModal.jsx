@@ -62,7 +62,7 @@ export default function CombineTextModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px]`}
+            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] cursor-pointer`}
             onClick={isAuthenticated && isAvailable ? openModal : undefined}
           >
             <Image
