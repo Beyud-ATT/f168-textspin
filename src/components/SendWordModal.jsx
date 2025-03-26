@@ -9,6 +9,7 @@ import TableHeaderBG from "../assets/table-header-bg.png";
 import SendWordBtn from "../assets/give-gift-btn.png";
 import { useState } from "react";
 import useSendWord from "../hooks/useSendWord";
+import { useQueryClient } from "@tanstack/react-query";
 
 function ChooseWord({ choosen, wordText, isAvailable, ...rest }) {
   return (
@@ -40,6 +41,7 @@ function SendWordModalInner() {
   const { words } = me?.data || { words: [] };
   const [currentWord, setCurrentWord] = useState("");
   const { mutate } = useSendWord();
+  const queryClient = useQueryClient();
 
   async function handleFinish(values) {
     const data = {
