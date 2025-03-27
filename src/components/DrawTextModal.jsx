@@ -60,7 +60,7 @@ export default function DrawTextModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] cursor-pointer`}
+            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer`}
             onClick={
               isAuthenticated && availableTurn > 0 ? openModal : undefined
             }
@@ -74,25 +74,28 @@ export default function DrawTextModal() {
               preview={false}
               alt="button-bg"
               loading="lazy"
-              className="md:w-auto md:h-auto w-[36px] h-[31px]"
+              className="w-[36px] h-[31px]"
             />
-            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center gap-3">
+            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
               <Image
                 src={Button1Icon}
                 preview={false}
                 alt="button-1-icon"
                 loading="lazy"
-                width={36}
-                height={31}
+                className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px]"
               />
               <Flex
                 vertical
                 justify="center"
                 align="center"
-                className="text-white font-bold font-carbon uppercase -translate-y-0.5"
+                className="text-white font-bold font-carbon uppercase"
               >
-                <p className="text-xl">Rút chữ</p>
-                <p className="text-[10px]">Lượt còn: {availableTurn}</p>
+                <p className="md:text-xl text-[16px] max-[350px]:text-[14px]">
+                  Rút chữ
+                </p>
+                <p className="md:text-[10px] text-[8px] max-[350px]:text-[6px] -translate-y-1">
+                  Lượt còn: {availableTurn}
+                </p>
               </Flex>
             </Flex>
           </Flex>

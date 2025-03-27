@@ -26,7 +26,7 @@ function GetHelpInner() {
           </p>
         </div>
 
-        <Flex className="h-[70%] items-center justify-center gap-15">
+        <Flex className="h-[70%] items-center justify-center md:gap-15 gap-5">
           <Flex
             justify="center"
             align="center"
