@@ -62,7 +62,7 @@ export default function MissionTable() {
             .map((element) => {
               if (element === "%S") {
                 return (
-                  <span className="text-[#FE0707]">
+                  <span className="text-[#FE0707] font-bold">
                     {missionGoal} {unit}
                   </span>
                 );
@@ -84,7 +84,7 @@ export default function MissionTable() {
               >
                 <div
                   key={`${Math.random()}_index`}
-                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[10px] flex gap-0.5"
+                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] md:text-[14px] text-[10px] flex gap-0.5"
                 >
                   {missionTitle}
                 </div>
@@ -92,7 +92,7 @@ export default function MissionTable() {
               <CustomButton
                 label="nhận"
                 active={isAvailableToAccept && !isCompleted}
-                className="px-3 py-1"
+                className="px-6 py-1 !text-[14px]"
               />
             </Flex>
           );

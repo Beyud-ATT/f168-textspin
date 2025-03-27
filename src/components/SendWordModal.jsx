@@ -1,7 +1,7 @@
 import { Flex, Form, Image, Input } from "antd";
 import ButtonBg from "../assets/image 8.png";
 import DeactiveButtonBg from "../assets/deactivate-btn.png";
-import Button1Icon from "../assets/image 9.png";
+import Button1Icon from "../assets/send-word.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import { useAuth } from "../assets/contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
@@ -171,7 +171,7 @@ export default function SendWordModal() {
                 vertical
                 className="text-white font-bold font-carbon uppercase"
               >
-                <p className="text-lg">tặng chữ</p>
+                <p className="text-xl">tặng chữ</p>
               </Flex>
             </Flex>
           </Flex>

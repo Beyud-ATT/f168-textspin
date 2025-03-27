@@ -28,7 +28,7 @@ export default function HelpHistory({ hideHeader = false }) {
           <Spin size="large" />
         </div>
       ) : (
-        <div className="h-[80%] overflow-y-auto">
+        <div className="h-[80%] mr-1 overflow-y-auto">
           {helpHistory?.data?.map((item, index) => (
             <div
               key={index}

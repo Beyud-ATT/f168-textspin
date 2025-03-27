@@ -23,7 +23,7 @@ export default function CombineTextHistory({ hideHeader = false }) {
         </div>
       )}
 
-      <div className="h-[80%] overflow-y-auto">
+      <div className="h-[80%] mr-1 overflow-y-auto">
         {isLoading ? (
           <div className="flex w-full h-full justify-center items-center">
             <Spin size="large" />

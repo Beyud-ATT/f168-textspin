@@ -5,7 +5,7 @@ import Countdown from "../components/CountDown";
 import BottomBg from "../assets/bottom-bg.png";
 import { FaUsers } from "react-icons/fa";
 import GetHelpModal from "../components/GetHelpModal";
-import GiftHistory from "../components/GiftHistory";
+import SendWordHistory from "../components/SendWordHistory";
 import DrawTextModal from "../components/DrawTextModal";
 import CombineTextModal from "../components/CombineTextModal";
 import MissionMobileModal from "../components/MissionMobileModal";
@@ -13,6 +13,7 @@ import RewardMobileModal from "../components/RewardMobileModal";
 import CharacterDrawed from "../components/CharacterDrawed";
 import MobileHistoryTabs from "../components/MobileHistoryTabs";
 import CommentsMobileModal from "../components/CommentsMobileModal";
+import SendWordModal from "../components/SendWordModal";
 
 export default function Mobile() {
   return (
@@ -76,7 +77,7 @@ export default function Mobile() {
                 </Flex>
               </div>
 
-              <GiftHistory />
+              <SendWordHistory />
             </Flex>
           </div>
         </Flex>
@@ -84,6 +85,7 @@ export default function Mobile() {
         <Flex justify="center" align="center" className="w-full gap-5">
           <DrawTextModal />
           <CombineTextModal />
+          <SendWordModal />
         </Flex>
       </Flex>
 

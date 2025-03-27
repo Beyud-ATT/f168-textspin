@@ -6,7 +6,7 @@ import Countdown from "../components/CountDown";
 import BottomBg from "../assets/bottom-bg.png";
 import { FaUsers } from "react-icons/fa";
 import GetHelpModal from "../components/GetHelpModal";
-import GiftHistory from "../components/GiftHistory";
+import SendWordHistory from "../components/SendWordHistory";
 import DrawTextModal from "../components/DrawTextModal";
 import CombineTextModal from "../components/CombineTextModal";
 import CharacterDrawed from "../components/CharacterDrawed";
@@ -71,7 +71,7 @@ export default function PC() {
                 </Flex>
               </div>
 
-              <GiftHistory />
+              <SendWordHistory />
             </Flex>
           </div>
 

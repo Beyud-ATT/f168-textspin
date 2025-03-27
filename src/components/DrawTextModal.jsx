@@ -87,9 +87,11 @@ export default function DrawTextModal() {
               />
               <Flex
                 vertical
-                className="text-white font-bold font-carbon uppercase"
+                justify="center"
+                align="center"
+                className="text-white font-bold font-carbon uppercase -translate-y-0.5"
               >
-                <p className="text-lg">Rút chữ</p>
+                <p className="text-xl">Rút chữ</p>
                 <p className="text-[10px]">Lượt còn: {availableTurn}</p>
               </Flex>
             </Flex>

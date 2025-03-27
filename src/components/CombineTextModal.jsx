@@ -85,7 +85,7 @@ export default function CombineTextModal() {
                 vertical
                 className="text-white font-bold font-carbon uppercase"
               >
-                <p className="text-lg">ghép chữ</p>
+                <p className="text-xl">ghép chữ</p>
               </Flex>
             </Flex>
           </Flex>
