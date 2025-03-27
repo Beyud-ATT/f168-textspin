@@ -125,7 +125,7 @@ function SendWordModalInner() {
               />
               <Flex
                 vertical
-                className="absolute top-[25%] left-[40%] text-white font-bold font-carbon uppercase"
+                className="absolute top-[25%] left-[40%] max-[350px]:top-[20%] max-[350px]:left-[30%] text-white font-bold font-carbon uppercase"
               >
                 <p className="text-4xl text-[#BD2C2F]">tặng chữ</p>
               </Flex>
