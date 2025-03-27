@@ -38,7 +38,7 @@ async function matchWord() {
     return res;
   } catch (error) {
     console.error("Error in matchWord:", error);
-    // throw error;
+    throw error;
   }
 }
 
@@ -48,7 +48,7 @@ async function sendWord(data) {
     return res;
   } catch (error) {
     console.error("Error in sendWord:", error);
-    // throw error;
+    throw error;
   }
 }
 

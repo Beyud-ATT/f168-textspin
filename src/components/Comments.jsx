@@ -22,7 +22,7 @@ export default function Comments() {
 
   return (
     <div className="flex flex-col justify-center items-center lg:py-5 py-3 lg:gap-3 gap-5">
-      <div className="flex flex-col gap-3 bg-white rounded-lg w-[95%] h-[388px] overflow-y-auto">
+      <div className="flex flex-col gap-3 bg-white rounded-lg w-[95%] h-[388px] overflow-y-auto p-5">
         {isLoading ? (
           <div className="flex w-full h-full justify-center items-center">
             <Spin size="large" />

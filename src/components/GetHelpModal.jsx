@@ -4,10 +4,24 @@ import TableHeaderBG from "../assets/table-header-bg.png";
 import { Flex, Image } from "antd";
 import { FB, ShareLink } from "../utils/svg";
 import { toast } from "react-toastify";
+import useGetMe from "../hooks/useGetMe";
 
 function GetHelpInner() {
-  function handleCopy(value) {
-    navigator.clipboard.writeText(value);
+  const { me } = useGetMe();
+  const { userCode } = me?.data || { userCode: null };
+
+  function handleCopy() {
+    navigator.clipboard.writeText(
+      `${window.location.origin}/?refCode=${userCode}`
+    );
+  }
+
+  function handleShare() {
+    navigator.share({
+      title: "F168 Quay Chữ",
+      text: "Nhờ bạn bè quay chữ với F168",
+      url: `${window.location.origin}/?refCode=${userCode}`,
+    });
   }
 
   return (
@@ -37,8 +51,7 @@ function GetHelpInner() {
               boxShadow: "0px 5.82px 0px 0px #892700",
             }}
             onClick={() => {
-              handleCopy("FB Link");
-              toast.success("Đã copy link chia sẻ FaceBook");
+              handleShare();
             }}
           >
             <FB />
