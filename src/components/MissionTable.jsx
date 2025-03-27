@@ -3,6 +3,24 @@ import RightTableBg from "../assets/right-table-bg.png";
 import CustomButton from "./Button";
 import useGetMe from "../hooks/useGetMe";
 import { MISSION_TYPE } from "../utils/constant";
+import useMissionComplete from "../hooks/useMissionComplete";
+
+function AcceptButton({
+  isAvailableToAccept,
+  isCompleted,
+  missionType,
+  missionGoal,
+}) {
+  const { mutate } = useMissionComplete();
+  return (
+    <CustomButton
+      label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
+      active={isAvailableToAccept && !isCompleted}
+      className={`${isCompleted ? "px-4" : "px-6"} !text-[13px] cursor-pointer`}
+      onClick={() => mutate({ missionType, missionGoal })}
+    />
+  );
+}
 
 export default function MissionTable() {
   const { me } = useGetMe();
@@ -89,10 +107,11 @@ export default function MissionTable() {
                   {missionTitle}
                 </div>
               </div>
-              <CustomButton
-                label="nhận"
-                active={isAvailableToAccept && !isCompleted}
-                className="px-6 !text-[13px]"
+              <AcceptButton
+                isCompleted={isCompleted}
+                isAvailableToAccept={isAvailableToAccept}
+                missionType={missionType}
+                missionGoal={missionGoal}
               />
             </Flex>
           );

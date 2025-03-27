@@ -104,8 +104,10 @@ function SendWordModalInner() {
                 <ChooseWord
                   key={index}
                   wordText={word.wordText}
-                  isAvailable
-                  onClick={() => setCurrentWord(word.wordText)}
+                  isAvailable={word.count}
+                  onClick={() => {
+                    if (word.count > 0) setCurrentWord(word.wordText);
+                  }}
                   choosen={currentWord === word.wordText}
                 />
               ))}

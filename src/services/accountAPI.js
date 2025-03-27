@@ -52,4 +52,21 @@ async function sendWord(data) {
   }
 }
 
-export { getMe, sendAndRecvHistories, randomWord, matchWord, sendWord };
+async function missionComplete(data) {
+  try {
+    const res = await axoisBase.post(`${endpoint}/mission-complete`, data);
+    return res;
+  } catch (error) {
+    console.error("Error in missionComplete:", error);
+    throw error;
+  }
+}
+
+export {
+  getMe,
+  sendAndRecvHistories,
+  randomWord,
+  matchWord,
+  sendWord,
+  missionComplete,
+};

@@ -34,7 +34,7 @@ function DrawTextModalInner() {
               closeModal();
               setTimeout(() => {
                 queryClient.invalidateQueries(["getMe"]);
-              }, 500);
+              }, 300);
             }}
             className={`md:px-7 py-1 !text-2xl`}
           />
