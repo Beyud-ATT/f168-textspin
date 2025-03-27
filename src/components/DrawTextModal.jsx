@@ -77,9 +77,9 @@ export default function DrawTextModal() {
                 vertical
                 justify="center"
                 align="center"
-                className="text-white font-bold font-carbon uppercase"
+                className="text-white font-bold font-carbon uppercase translate-y-0.5"
               >
-                <p className="md:text-xl text-[16px] max-[350px]:text-[12px]">
+                <p className="md:text-xl text-[16px] max-[350px]:text-[10px]">
                   Rút chữ
                 </p>
                 <p className="md:text-[10px] text-[8px] max-[350px]:text-[6px] -translate-y-1">
