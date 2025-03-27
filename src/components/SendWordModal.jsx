@@ -27,7 +27,7 @@ function ChooseWord({ choosen, wordText, isAvailable, ...rest }) {
       }}
       {...rest}
     >
-      <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5">
+      <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5 -translate-y-1">
         {wordText}
       </span>
     </div>
@@ -144,27 +144,25 @@ export default function SendWordModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer`}
+            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer ${
+              isAuthenticated && isAvailable
+                ? "bg-[url('/src/assets/image_8.png')]"
+                : "bg-[url('/src/assets/deactivate-btn.png')]"
+            } bg-contain bg-no-repeat bg-center`}
             onClick={isAuthenticated && isAvailable ? openModal : undefined}
           >
-            <Image
-              src={isAuthenticated && isAvailable ? ButtonBg : DeactiveButtonBg}
-              preview={false}
-              alt="button-bg"
-              className="md:w-auto md:h-auto w-[36px] h-[31px]"
-            />
-            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
+            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1">
               <Image
                 src={Button1Icon}
                 preview={false}
                 alt="button-1-icon"
-                className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px] max-[425px]:-translate-y-0.5"
+                className="sm:!w-[36px] sm:!h-[31px] !w-[20px] !h-[21px] max-[425px]:-translate-y-0.5"
               />
               <Flex
                 vertical
                 className="text-white font-bold font-carbon uppercase"
               >
-                <p className="md:text-xl text-[16px] max-[350px]:text-[14px]">
+                <p className="md:text-xl text-[16px] max-[350px]:text-[12px]">
                   tặng chữ
                 </p>
               </Flex>

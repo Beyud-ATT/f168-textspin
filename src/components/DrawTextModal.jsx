@@ -1,6 +1,4 @@
 import { Flex, Image } from "antd";
-import ButtonBg from "../assets/image_8.png";
-import DeactiveButtonBg from "../assets/deactivate-btn.png";
 import Button1Icon from "../assets/image_9.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CharacterAnimation from "./CharacterAnimation";
@@ -73,7 +71,7 @@ export default function DrawTextModal() {
                 src={Button1Icon}
                 preview={false}
                 alt="button-1-icon"
-                className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px]"
+                className="sm:!w-[36px] sm:!h-[31px] !w-[20px] !h-[21px]"
               />
               <Flex
                 vertical
@@ -81,7 +79,7 @@ export default function DrawTextModal() {
                 align="center"
                 className="text-white font-bold font-carbon uppercase"
               >
-                <p className="md:text-xl text-[16px] max-[350px]:text-[14px]">
+                <p className="md:text-xl text-[16px] max-[350px]:text-[12px]">
                   Rút chữ
                 </p>
                 <p className="md:text-[10px] text-[8px] max-[350px]:text-[6px] -translate-y-1">

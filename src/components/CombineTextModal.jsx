@@ -1,6 +1,4 @@
 import { Flex, Image } from "antd";
-import ButtonBg from "../assets/image_8.png";
-import DeactiveButtonBg from "../assets/deactivate-btn.png";
 import Button2Icon from "../assets/image_21.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import DrawBg from "../assets/draw-bg.png";
@@ -60,29 +58,25 @@ export default function CombineTextModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer`}
+            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer ${
+              isAuthenticated && isAvailable
+                ? "bg-[url('/src/assets/image_8.png')]"
+                : "bg-[url('/src/assets/deactivate-btn.png')]"
+            } bg-contain bg-no-repeat bg-center`}
             onClick={isAuthenticated && isAvailable ? openModal : undefined}
           >
-            <Image
-              src={isAuthenticated && isAvailable ? ButtonBg : DeactiveButtonBg}
-              preview={false}
-              alt="button-bg"
-              load
-              ing="lazy"
-              className="md:w-auto md:h-auto w-[36px] h-[31px]"
-            />
-            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
+            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1">
               <Image
                 src={Button2Icon}
                 preview={false}
                 alt="button-1-icon"
-                className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px]"
+                className="sm:!w-[36px] sm:!h-[31px] !w-[20px] !h-[21px]"
               />
               <Flex
                 vertical
                 className="text-white font-bold font-carbon uppercase"
               >
-                <p className="md:text-xl text-[16px] max-[350px]:text-[14px]">
+                <p className="md:text-xl text-[16px] max-[350px]:text-[12px]">
                   ghép chữ
                 </p>
               </Flex>
