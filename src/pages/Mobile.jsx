@@ -14,8 +14,11 @@ import CharacterDrawed from "../components/CharacterDrawed";
 import MobileHistoryTabs from "../components/MobileHistoryTabs";
 import CommentsMobileModal from "../components/CommentsMobileModal";
 import SendWordModal from "../components/SendWordModal";
+import useTotalJoin from "../hooks/useTotalJoin";
 
 export default function Mobile() {
+  const { totalJoin } = useTotalJoin();
+
   return (
     <Flex vertical gap={20}>
       <Flex justify="center" align="center">
@@ -59,7 +62,7 @@ export default function Mobile() {
                   className="absolute bottom-0 left-0 w-full h-full -translate-y-0.5"
                 >
                   <p className="text-white text-lg font-bd-street-sign">
-                    1,678,890
+                    {Intl.NumberFormat().format(totalJoin?.data)}
                   </p>
                   <div className="flex items-center justify-center gap-1">
                     <FaUsers className="text-white text-[10px]" />

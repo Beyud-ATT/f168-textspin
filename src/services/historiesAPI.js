@@ -22,4 +22,14 @@ async function listWordSend() {
   }
 }
 
-export { listWordCompleted, listWordSend };
+async function totalJoin() {
+  try {
+    const res = await axoisBase.get(`${endpoint}/total-join`);
+    return res;
+  } catch (error) {
+    console.error("Error in totalJoin:", error);
+    throw error;
+  }
+}
+
+export { listWordCompleted, listWordSend, totalJoin };

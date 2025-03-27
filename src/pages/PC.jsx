@@ -15,8 +15,11 @@ import CombineTextHistory from "../components/CombineTextHistory";
 import HelpHistory from "../components/HelpHistory";
 import Comments from "../components/Comments";
 import SendWordModal from "../components/SendWordModal";
+import useTotalJoin from "../hooks/useTotalJoin";
 
 export default function PC() {
+  const { totalJoin } = useTotalJoin();
+
   return (
     <Flex vertical gap={76} className="w-full">
       <Flex justify="center" align="center">
@@ -50,7 +53,7 @@ export default function PC() {
                   className="absolute bottom-0 left-0 w-full h-full"
                 >
                   <p className="text-white text-4xl font-bd-street-sign">
-                    1,678,890
+                    {Intl.NumberFormat().format(totalJoin?.data)}
                   </p>
                   <div className="flex items-center justify-center gap-2">
                     <FaUsers className="text-white text-2xl" />
