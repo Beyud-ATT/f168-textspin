@@ -14,7 +14,6 @@ export default function HelpHistory({ hideHeader = false }) {
             src={TableHeaderBG}
             preview={false}
             alt="table-header-bg"
-            loading="lazy"
             className="-translate-y-[20%]"
           />
           <p className="text-2xl text-white font-bold absolute uppercase font-carbon">

@@ -6,7 +6,7 @@ import RewardBg from "../assets/reward-1.webp";
 function RewardMobileModalInner() {
   return (
     <div>
-      <Image src={RewardBg} preview={false} alt="reward-bg" loading="lazy" />
+      <Image src={RewardBg} preview={false} alt="reward-bg" className="" />
     </div>
   );
 }

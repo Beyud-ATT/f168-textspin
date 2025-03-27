@@ -27,7 +27,6 @@ export default function CommentsMobileModal() {
             src={CommentsMobileTrigger}
             preview={false}
             alt="comments-mobile-trigger"
-            loading="lazy"
             onClick={openModal}
             className="fixed top-[20%] right-0 !w-[52px] !h-[52px] z-30"
           />

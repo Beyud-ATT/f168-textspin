@@ -20,7 +20,6 @@ function CombineTextModalInner() {
           src={DrawBg}
           preview={false}
           alt="table-header-bg"
-          loading="lazy"
           className=""
         />
         <div className="absolute top-[28%] max-[350px]:top-[23%] left-[49%] -translate-x-1/2 z-30">
@@ -43,7 +42,6 @@ function CombineTextModalInner() {
         src={CombineTextEffectBig}
         preview={false}
         alt="combine-text-effect-big"
-        loading="lazy"
         className="w-full h-full -translate-y-[13%] max-[350px]:-translate-y-[19%] -translate-x-[12%]"
         height={370}
       />
@@ -69,7 +67,8 @@ export default function CombineTextModal() {
               src={isAuthenticated && isAvailable ? ButtonBg : DeactiveButtonBg}
               preview={false}
               alt="button-bg"
-              loading="lazy"
+              load
+              ing="lazy"
               className="md:w-auto md:h-auto w-[36px] h-[31px]"
             />
             <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
@@ -77,7 +76,6 @@ export default function CombineTextModal() {
                 src={Button2Icon}
                 preview={false}
                 alt="button-1-icon"
-                loading="lazy"
                 className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px]"
               />
               <Flex

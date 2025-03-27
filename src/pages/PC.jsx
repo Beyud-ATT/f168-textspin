@@ -20,20 +20,15 @@ export default function PC() {
   return (
     <Flex vertical gap={76} className="w-full">
       <Flex justify="center" align="center">
-        <Image src={MainImg1} preview={false} alt="main-img-1" loading="lazy" />
+        <Image src={MainImg1} preview={false} alt="main-img-1" />
       </Flex>
 
       <Flex vertical gap={10}>
         <Flex justify="space-between" align="center">
-          <Image src={Reward1} preview={false} alt="reward-1" loading="lazy" />
+          <Image src={Reward1} preview={false} alt="reward-1" />
 
           <div className="w-[50%] relative">
-            <Image
-              src={MainTableBg}
-              preview={false}
-              alt="main-table-bg"
-              loading="lazy"
-            />
+            <Image src={MainTableBg} preview={false} alt="main-table-bg" />
 
             <div className="absolute top-[9%] left-0 w-full flex justify-center items-center -translate-x-2">
               <Countdown />
@@ -47,12 +42,7 @@ export default function PC() {
               <GetHelpModal />
 
               <div className="relative">
-                <Image
-                  src={BottomBg}
-                  preview={false}
-                  alt="bottom-bg"
-                  loading="lazy"
-                />
+                <Image src={BottomBg} preview={false} alt="bottom-bg" />
                 <Flex
                   justify="center"
                   align="center"

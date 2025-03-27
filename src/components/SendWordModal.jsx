@@ -74,7 +74,6 @@ function SendWordModalInner() {
             src={TableHeaderBG}
             preview={false}
             alt="table-header-bg"
-            loading="lazy"
             className="-translate-y-[20%]"
           />
           <p className="text-2xl text-white font-bold absolute uppercase font-carbon">
@@ -117,12 +116,7 @@ function SendWordModalInner() {
               className="relative w-full h-full justify-center items-center gap-3 cursor-pointer"
               onClick={form.submit}
             >
-              <Image
-                src={SendWordBtn}
-                preview={false}
-                alt="button-1-icon"
-                loading="lazy"
-              />
+              <Image src={SendWordBtn} preview={false} alt="button-1-icon" />
               <Flex
                 vertical
                 className="absolute top-[25%] left-[40%] max-[350px]:top-[20%] max-[350px]:left-[30%] text-white font-bold font-carbon uppercase"
@@ -155,7 +149,6 @@ export default function SendWordModal() {
               src={isAuthenticated && isAvailable ? ButtonBg : DeactiveButtonBg}
               preview={false}
               alt="button-bg"
-              loading="lazy"
               className="md:w-auto md:h-auto w-[36px] h-[31px]"
             />
             <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
@@ -163,7 +156,6 @@ export default function SendWordModal() {
                 src={Button1Icon}
                 preview={false}
                 alt="button-1-icon"
-                loading="lazy"
                 className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px] max-[425px]:-translate-y-0.5"
               />
               <Flex

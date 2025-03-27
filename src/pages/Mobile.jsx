@@ -23,7 +23,6 @@ export default function Mobile() {
           src={MainImg1}
           preview={false}
           alt="main-img-1"
-          loading="lazy"
           width={333}
           height={141}
         />
@@ -32,12 +31,7 @@ export default function Mobile() {
       <Flex vertical justify="center" align="center" gap={10}>
         <Flex justify="space-between" align="center">
           <div className="relative">
-            <Image
-              src={MainTableBg}
-              preview={false}
-              alt="main-table-bg"
-              loading="lazy"
-            />
+            <Image src={MainTableBg} preview={false} alt="main-table-bg" />
 
             <div className="absolute top-[9%] left-0 w-full flex justify-center items-center -translate-x-2">
               <Countdown />
@@ -55,7 +49,6 @@ export default function Mobile() {
                   src={BottomBg}
                   preview={false}
                   alt="bottom-bg"
-                  loading="lazy"
                   width={132}
                   height={38}
                 />

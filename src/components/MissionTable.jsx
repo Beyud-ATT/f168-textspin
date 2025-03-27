@@ -16,7 +16,7 @@ export default function MissionTable() {
         src={RightTableBg}
         preview={false}
         alt="right-table-bg"
-        loading="lazy"
+        className=""
       />
       <p
         className="md:text-4xl min-[425px]:text-3xl text-xl font-carbon absolute md:top-[20%] top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -67,7 +67,7 @@ export default function MissionTable() {
                   </span>
                 );
               }
-              return <span>{element}</span>;
+              return `${element} `;
             });
 
           return (
@@ -84,7 +84,7 @@ export default function MissionTable() {
               >
                 <div
                   key={`${Math.random()}_index`}
-                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] md:text-[14px] text-[10px] flex gap-0.5"
+                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] md:text-[14px] text-[10px]"
                 >
                   {missionTitle}
                 </div>

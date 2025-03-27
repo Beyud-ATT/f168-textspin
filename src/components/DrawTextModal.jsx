@@ -18,13 +18,7 @@ function DrawTextModalInner() {
 
   return (
     <div className="relative">
-      <Image
-        src={DrawBg}
-        preview={false}
-        alt="table-header-bg"
-        loading="lazy"
-        className=""
-      />
+      <Image src={DrawBg} preview={false} alt="table-header-bg" className="" />
       <div className="absolute top-[20%] left-[49%] -translate-x-1/2">
         <Flex vertical className="items-center gap-2">
           <CharacterAnimation
@@ -73,7 +67,6 @@ export default function DrawTextModal() {
               }
               preview={false}
               alt="button-bg"
-              loading="lazy"
               className="w-[36px] h-[31px]"
             />
             <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
@@ -81,7 +74,6 @@ export default function DrawTextModal() {
                 src={Button1Icon}
                 preview={false}
                 alt="button-1-icon"
-                loading="lazy"
                 className="sm:!w-[36px] sm:!h-[31px] !w-[24px] !h-[21px]"
               />
               <Flex

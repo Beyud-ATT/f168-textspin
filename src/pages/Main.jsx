@@ -22,21 +22,11 @@ export default function Main() {
         className="md:flex md:visible md:opacity-100 md:h-auto md:w-auto h-0 w-0 hidden invisible opacity-0 lg:!px-6 !px-4 xl:gap-20 gap-5"
       >
         <Flex justify="center" align="center">
-          <Image
-            src={EventDetail}
-            preview={false}
-            alt="event-detail"
-            loading="lazy"
-          />
+          <Image src={EventDetail} preview={false} alt="event-detail" />
         </Flex>
 
         <Flex justify="center" align="center">
-          <Image
-            src={GetHelpDetail}
-            preview={false}
-            alt="gethelp-detail"
-            loading="lazy"
-          />
+          <Image src={GetHelpDetail} preview={false} alt="gethelp-detail" />
         </Flex>
       </Flex>
 
@@ -47,21 +37,11 @@ export default function Main() {
         gap={10}
       >
         <Flex justify="center" align="center">
-          <Image
-            src={EventDetailMB}
-            preview={false}
-            alt="event-detail"
-            loading="lazy"
-          />
+          <Image src={EventDetailMB} preview={false} alt="event-detail" />
         </Flex>
 
         <Flex justify="center" align="center">
-          <Image
-            src={GetHelpDetailMB}
-            preview={false}
-            alt="gethelp-detail"
-            loading="lazy"
-          />
+          <Image src={GetHelpDetailMB} preview={false} alt="gethelp-detail" />
         </Flex>
       </Flex>
     </>
