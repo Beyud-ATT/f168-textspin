@@ -3,10 +3,13 @@ import { Input, Form } from "antd";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CustomButton from "./Button";
 import { useAuth } from "../assets/contexts/AuthContext";
+import { useSearchParams } from "react-router";
 
 const LoginModalForm = () => {
   const { login } = useAuth();
   const { closeModal } = useModal();
+  const [searchParams] = useSearchParams();
+  const refCode = searchParams.get("refCode");
 
   const [form] = Form.useForm();
   const digit1Ref = useRef(null);
@@ -26,7 +29,7 @@ const LoginModalForm = () => {
       bank: [values.digit1, values.digit2, values.digit3, values.digit4].join(
         ""
       ),
-      refCode: "",
+      refCode: refCode,
     };
 
     const res = await login(data);
