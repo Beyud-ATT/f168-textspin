@@ -15,7 +15,7 @@ const Countdown = ({ time = dayjs("2025-03-25T23:59:59").toISOString() }) => {
       >
         THỜI GIAN KẾT THÚC CÒN
       </div>
-      <div className="flex items-center md:text-xl text-[10px] font-bd-street-sign">
+      <div className="flex items-center md:text-xl text-[10px] font-bd-street-sign -translate-y-1">
         <CountdownItem unit="Day" timeToCount={time} />
         <span className="mx-1">-</span>
         <CountdownItem unit="Hour" text=":" timeToCount={time} />

@@ -36,7 +36,7 @@ export default function Mobile() {
           <div className="relative">
             <Image src={MainTableBg} preview={false} alt="main-table-bg" />
 
-            <div className="absolute top-[9%] left-0 w-full flex justify-center items-center -translate-x-2">
+            <div className="absolute top-[10%] left-0 w-full flex justify-center items-center -translate-x-1.5">
               <Countdown />
             </div>
 
