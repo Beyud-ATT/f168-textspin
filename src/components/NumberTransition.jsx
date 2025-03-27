@@ -93,7 +93,7 @@ export default function NumberTransition() {
             className="absolute top-0 left-0 w-full h-full"
           >
             <div
-              className={`p-1.5 flex items-center justify-center font-carbon text-5xl uppercase text-[#FFF9EA] cursor-pointer`}
+              className={`p-1.5 flex items-center justify-center font-carbon text-5xl uppercase text-[#FFF9EA] cursor-pointer  max-[350px]:text-[42px] max-[350px]:w-[90%] max-[350px]:mx-auto`}
               style={{
                 borderRadius: 6.86,
                 border: "1px solid #FFF8E3",

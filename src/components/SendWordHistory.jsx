@@ -36,7 +36,7 @@ function SendWordHistoryInner() {
                 key={index}
                 className="w-full justify-between items-center px-5 h-[44px]"
               >
-                <div className="flex text-[12px] font-semibold items-center justify-between w-full border-b-2 border-[#D9D9D9] pb-2">
+                <div className="flex md:text-[12px] text-[10px] font-semibold items-center justify-between w-full border-b-2 border-[#D9D9D9] pb-2">
                   <p className="uppercase">
                     {dayjs(item.completedAt).format("YYYY-MM-DD")}
                   </p>

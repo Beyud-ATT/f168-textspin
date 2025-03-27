@@ -23,10 +23,10 @@ function CombineTextModalInner() {
           loading="lazy"
           className=""
         />
-        <div className="absolute top-[28%] left-[49%] -translate-x-1/2 z-30">
+        <div className="absolute top-[28%] max-[350px]:top-[23%] left-[49%] -translate-x-1/2 z-30">
           <NumberTransition />
         </div>
-        <div className="absolute top-[48%] left-[49%] -translate-x-1/2">
+        <div className="absolute top-[48%] max-[350px]:top-[40%] left-[49%] -translate-x-1/2">
           <Flex vertical className="items-center">
             <p className="text-[#892700] text-2xl text-center font-bold leading-[41px] font-carbon uppercase">
               BẠN ĐÃ ghép chữ THÀNH CÔNG
@@ -37,14 +37,14 @@ function CombineTextModalInner() {
       <CustomButton
         label="Đóng"
         onClick={closeModal}
-        className={`px-7 py-1 !text-2xl z-30 absolute bottom-[19%] left-[48%] -translate-x-1/2 w-[155px] cursor-pointer`}
+        className={`px-7 py-1 !text-2xl z-30 absolute bottom-[19%] max-[350px]:bottom-[27%] left-[48%] -translate-x-1/2 w-[155px] cursor-pointer`}
       />
       <Image
         src={CombineTextEffectBig}
         preview={false}
         alt="combine-text-effect-big"
         loading="lazy"
-        className="w-full h-full -translate-y-[13%] -translate-x-[12%]"
+        className="w-full h-full -translate-y-[13%] max-[350px]:-translate-y-[19%] -translate-x-[12%]"
         height={370}
       />
     </div>
