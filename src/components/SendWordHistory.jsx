@@ -26,7 +26,7 @@ function SendWordHistoryInner() {
 
         <div className="px-8 mr-1 h-[80%] overflow-y-auto">
           {isLoading ? (
-            <Flex vertical justify="center" align="center">
+            <Flex vertical justify="center" align="center" className="h-full">
               <Spin size="large" />
             </Flex>
           ) : sendAndRecvHistories?.data?.length > 0 ? (
@@ -45,7 +45,13 @@ function SendWordHistoryInner() {
               </Flex>
             ))
           ) : (
-            <Flex vertical justify="center" align="center">
+            <Flex
+              vertical
+              justify="center"
+              align="center"
+              className="h-full"
+              gap={50}
+            >
               <Flex justify="center" align="center" className="gap-5">
                 <Elipse />
                 <Elipse />
