@@ -92,7 +92,7 @@ export default function MissionTable() {
               <CustomButton
                 label="nhận"
                 active={isAvailableToAccept && !isCompleted}
-                className="px-6 py-1 !text-[14px]"
+                className="px-6 !text-[13px]"
               />
             </Flex>
           );
