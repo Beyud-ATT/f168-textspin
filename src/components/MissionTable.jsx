@@ -4,29 +4,44 @@ import CustomButton from "./Button";
 import useGetMe from "../hooks/useGetMe";
 import { MISSION_TYPE } from "../utils/constant";
 import useMissionComplete from "../hooks/useMissionComplete";
+import { useAuth } from "../assets/contexts/AuthContext";
+import useMissions from "../hooks/useMissions";
 
 function AcceptButton({
   isAvailableToAccept,
   isCompleted,
   missionType,
   missionGoal,
+  hide,
 }) {
   const { mutate } = useMissionComplete();
   return (
-    <CustomButton
-      label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
-      active={isAvailableToAccept && !isCompleted}
-      className={`${isCompleted ? "px-4" : "px-6"} !text-[13px] cursor-pointer`}
-      onClick={() => mutate({ missionType, missionGoal })}
-    />
+    !hide && (
+      <CustomButton
+        label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
+        active={isAvailableToAccept && !isCompleted}
+        className={`${
+          isCompleted ? "px-4" : "px-6"
+        } !text-[13px] cursor-pointer`}
+        onClick={() => mutate({ missionType, missionGoal })}
+      />
+    )
   );
 }
 
 export default function MissionTable() {
+  const { isAuthenticated } = useAuth();
   const { me } = useGetMe();
-  const { missions, totalDeposit, totalBet, totalInvite } = me?.data || {
+  const { missions: missionsData } = useMissions();
+  const {
+    missions: missionsMe,
+    totalDeposit,
+    totalBet,
+    totalInvite,
+  } = me?.data || {
     missions: [],
   };
+  const missions = missionsMe?.length > 0 ? missionsMe : missionsData?.data;
 
   return (
     <div className="relative flex justify-center items-center">
@@ -52,7 +67,7 @@ export default function MissionTable() {
         vertical
         className="absolute min-[425px]:top-[28%] top-[23%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
       >
-        {missions.map((mission, index) => {
+        {missions?.map((mission, index) => {
           const {
             missionContentTemplete,
             missionGoal,
@@ -112,6 +127,7 @@ export default function MissionTable() {
                 isAvailableToAccept={isAvailableToAccept}
                 missionType={missionType}
                 missionGoal={missionGoal}
+                hide={!isAuthenticated}
               />
             </Flex>
           );
