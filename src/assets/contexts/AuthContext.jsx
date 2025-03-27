@@ -47,11 +47,18 @@ function AuthProvider({ children }) {
     }
   }, []);
 
+  const logout = useCallback(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setIsAuthenticated(false);
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         login,
+        logout,
       }}
     >
       {children}
