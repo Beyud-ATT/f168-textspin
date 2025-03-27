@@ -11,7 +11,7 @@ export default function MobileHistoryTabs() {
       <div className="w-full h-full rounded-lg bg-[var(--bg-color)] flex flex-col gap-6 py-5">
         <Flex justify="center" gap={30} align="center" className="">
           <CustomButton
-            label="Lịch sử tặng chữ"
+            label="Lịch sử ghép chữ"
             px="5"
             py="1"
             text="37px"
@@ -19,7 +19,7 @@ export default function MobileHistoryTabs() {
             onClick={() => setCurrentTab(0)}
           />
           <CustomButton
-            label="Lịch sử tặng chữ"
+            label="Lịch sử trợ giúp"
             px="5"
             py="1"
             text="37px"

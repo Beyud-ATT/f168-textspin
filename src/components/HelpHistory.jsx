@@ -37,7 +37,7 @@ export default function HelpHistory({ hideHeader = false }) {
                 <p className="uppercase">
                   {dayjs(item.completedAt).format("YYYY-MM-DD")}
                 </p>
-                <p className="uppercase">{item.anotherUsername}</p>
+                <p className="uppercase">{item.username}</p>
                 <p className="uppercase">Tặng bạn chữ {item.word}</p>
               </div>
             </div>
