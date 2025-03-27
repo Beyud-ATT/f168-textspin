@@ -1,7 +1,7 @@
 import { Flex, Image } from "antd";
-import ButtonBg from "../assets/image 8.png";
+import ButtonBg from "../assets/image_8.png";
 import DeactiveButtonBg from "../assets/deactivate-btn.png";
-import Button1Icon from "../assets/image 9.png";
+import Button1Icon from "../assets/image_9.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CharacterAnimation from "./CharacterAnimation";
 import DrawBg from "../assets/draw-bg.png";
@@ -54,22 +54,21 @@ export default function DrawTextModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative md:w-[196px] md:h-[74px] !w-[157px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer`}
+            className={`relative !w-[157px] !h-[74px] max-[400px]:!h-[40px] cursor-pointer
+              ${
+                isAuthenticated && availableTurn > 0
+                  ? "bg-[url('/src/assets/image_8.png')]"
+                  : "bg-[url('/src/assets/deactivate-btn.png')]"
+              } bg-contain bg-no-repeat bg-center`}
             onClick={
               isAuthenticated && availableTurn > 0 ? openModal : undefined
             }
           >
-            <Image
-              src={
-                isAuthenticated && availableTurn > 0
-                  ? ButtonBg
-                  : DeactiveButtonBg
-              }
-              preview={false}
-              alt="button-bg"
-              className="w-[36px] h-[31px]"
-            />
-            <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1 md:-translate-y-0 min-[400px]:-translate-y-1 min-[350px]:translate-y-1">
+            <Flex
+              className={`w-full h-full 
+                justify-center items-center sm:gap-2 gap-1 
+                `}
+            >
               <Image
                 src={Button1Icon}
                 preview={false}

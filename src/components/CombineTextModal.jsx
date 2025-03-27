@@ -1,7 +1,7 @@
 import { Flex, Image } from "antd";
-import ButtonBg from "../assets/image 8.png";
+import ButtonBg from "../assets/image_8.png";
 import DeactiveButtonBg from "../assets/deactivate-btn.png";
-import Button2Icon from "../assets/image 21.png";
+import Button2Icon from "../assets/image_21.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import DrawBg from "../assets/draw-bg.png";
 import CustomButton from "./Button";

@@ -1,5 +1,5 @@
 import { Flex, Form, Image, Input } from "antd";
-import ButtonBg from "../assets/image 8.png";
+import ButtonBg from "../assets/image_8.png";
 import DeactiveButtonBg from "../assets/deactivate-btn.png";
 import Button1Icon from "../assets/send-word.png";
 import { CompoundModal, useModal } from "./CompoundModal";
@@ -27,7 +27,7 @@ function ChooseWord({ choosen, wordText, isAvailable, ...rest }) {
       }}
       {...rest}
     >
-      <span className="text-white font-bold md:text-7xl text-5xl -translate-y-1.5">
+      <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5">
         {wordText}
       </span>
     </div>

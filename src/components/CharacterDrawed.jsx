@@ -35,7 +35,7 @@ export default function CharacterDrawed() {
                 : "linear-gradient(180deg, #FFE0B1 0%, #ECBF86 100%)",
             }}
           >
-            <span className="text-white font-bold md:text-7xl text-5xl -translate-y-1.5">
+            <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5">
               {character.wordText}
             </span>
             {isAvailable && (
