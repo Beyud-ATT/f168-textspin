@@ -27,11 +27,6 @@ export default function NumberTransition() {
   const [currentImage, setCurrentImage] = useState(1);
   const [code, setCode] = useState("");
 
-  function handleCopy() {
-    navigator.clipboard.writeText(code);
-    toast.success("Đã copy mã thành công");
-  }
-
   useEffect(() => {
     async function handleCombineText() {
       const res = await matchWord();
@@ -99,7 +94,6 @@ export default function NumberTransition() {
                 border: "1px solid #FFF8E3",
                 background: "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)",
               }}
-              onClick={handleCopy}
             >
               {code}
             </div>

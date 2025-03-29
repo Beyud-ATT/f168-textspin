@@ -5,7 +5,7 @@ export default function MainBody({ Layout, ...rest }) {
   return (
     <Content
       {...rest}
-      className="md:bg-[url(/src/assets/main-bg.webp)] bg-[url(/src/assets/mobile-bg.webp)] bg-cover bg-top bg-no-repeat py-10"
+      className="md:bg-[url(/src/assets/main-bg.jpg)] bg-[url(/src/assets/mobile-bg.webp)] bg-cover bg-top bg-no-repeat py-10"
     >
       <div className="max-w-screen-2xl mx-auto">
         <Outlet />

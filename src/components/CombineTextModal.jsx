@@ -1,4 +1,4 @@
-import { Flex, Image } from "antd";
+import { Flex, Image as ImageAntd } from "antd";
 import Button2Icon from "../assets/image_21.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import DrawBg from "../assets/draw-bg.png";
@@ -7,20 +7,79 @@ import CombineTextEffectBig from "../assets/combine-text-effect-big.gif";
 import { useAuth } from "../assets/contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
 import NumberTransition from "./NumberTransition";
+import { useRef, useState } from "react";
+import { toPng } from "html-to-image";
 
 function CombineTextModalInner() {
   const { closeModal } = useModal();
+  const captureRef = useRef();
+  const [screenshotUrl, setScreenshotUrl] = useState(null);
+
+  async function capture() {
+    if (captureRef.current) {
+      try {
+        // Detailed logging
+        console.group("Screenshot Capture Diagnostics");
+        console.log("Target Element:", captureRef.current);
+
+        // Capture with html-to-image
+        const dataUrl = await toPng(captureRef.current, {
+          // Configuration options
+          quality: 1, // Highest quality
+          cacheBust: true, // Prevent caching issues
+          width: captureRef.current.scrollWidth,
+          height: captureRef.current.scrollHeight,
+
+          // Additional options for complex rendering
+          filter: (node) => {
+            // Optional: Filter out specific nodes if needed
+            // Useful for excluding certain elements
+            return true;
+          },
+
+          // Handle background and positioning
+          backgroundColor: "transparent", // Or specific color
+          skipAutoScale: false,
+
+          // Logging for debugging
+          onclone: (clonedDoc) => {
+            console.log("Cloned Document:", clonedDoc);
+          },
+        });
+
+        // Log success
+        console.log("Screenshot Captured Successfully");
+        console.groupEnd();
+
+        // Update state with screenshot
+        setScreenshotUrl(dataUrl);
+
+        // Optional: Automatic download
+        const link = document.createElement("a");
+        link.download = "screenshot.png";
+        link.href = dataUrl;
+        link.click();
+      } catch (error) {
+        // Detailed error logging
+        console.error("Screenshot Capture Error:", error);
+        console.groupEnd();
+      }
+    }
+  }
 
   return (
-    <div className="relative">
+    <div className="relative" ref={captureRef}>
       <div className="absolute top-0 left-0 w-full h-full">
-        <Image
+        <ImageAntd
           src={DrawBg}
           preview={false}
           alt="table-header-bg"
           className=""
         />
-        <div className="absolute top-[28%] max-[350px]:top-[23%] left-[49%] -translate-x-1/2 z-30">
+        <div
+          className="absolute top-[28%] max-[350px]:top-[23%] left-[49%] -translate-x-1/2 z-30"
+          onClick={capture}
+        >
           <NumberTransition />
         </div>
         <div className="absolute top-[48%] max-[350px]:top-[40%] left-[49%] -translate-x-1/2">
@@ -36,7 +95,7 @@ function CombineTextModalInner() {
         onClick={closeModal}
         className={`px-7 py-1 !text-2xl z-30 absolute bottom-[19%] max-[350px]:bottom-[27%] left-[48%] -translate-x-1/2 w-[155px] cursor-pointer`}
       />
-      <Image
+      <ImageAntd
         src={CombineTextEffectBig}
         preview={false}
         alt="combine-text-effect-big"
@@ -66,7 +125,7 @@ export default function CombineTextModal() {
             onClick={isAuthenticated && isAvailable ? openModal : undefined}
           >
             <Flex className="absolute top-0 left-0 w-full h-full justify-center items-center sm:gap-2 gap-1">
-              <Image
+              <ImageAntd
                 src={Button2Icon}
                 preview={false}
                 alt="button-1-icon"
