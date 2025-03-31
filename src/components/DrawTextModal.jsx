@@ -2,10 +2,10 @@ import { Flex, Image } from "antd";
 import Button1Icon from "../assets/image_9.png";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CharacterAnimation from "./CharacterAnimation";
-import DrawBg from "../assets/draw-bg.png";
+import DrawBg from "../assets/draw-bg-v2.png";
 import CustomButton from "./Button";
 import useRandomWord from "../hooks/useRandomWord";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -15,30 +15,30 @@ function DrawTextModalInner() {
   const queryClient = useQueryClient();
 
   return (
-    <div className="relative">
+    <Flex vertical justify="center" align="center" className="relative">
       <Image src={DrawBg} preview={false} alt="table-header-bg" className="" />
-      <div className="absolute top-[20%] left-[49%] -translate-x-1/2">
+      <div className="absolute top-[20%] left-[51%] max-[400px]:top-[12%] -translate-x-1/2">
         <Flex vertical className="items-center gap-2">
           <CharacterAnimation
             restartFlag={isOpen}
             randomWord={randomWord?.data || "1"}
           />
-          <p className="text-[#892700] md:text-3xl text-2xl text-center font-bold leading-[41px] font-carbon uppercase">
+          <p className="text-[#892700] md:text-3xl text-2xl max-[361px]:text-[16px] text-center font-bold leading-[41px] font-carbon uppercase -translate-y-10">
             BẠN ĐÃ RÚT CHỮ THÀNH CÔNG
           </p>
-          <CustomButton
-            label="Đóng"
-            onClick={() => {
-              closeModal();
-              setTimeout(() => {
-                queryClient.invalidateQueries(["getMe"]);
-              }, 300);
-            }}
-            className={`md:px-7 py-1 !text-2xl`}
-          />
         </Flex>
       </div>
-    </div>
+      <CustomButton
+        label="Nhận"
+        onClick={() => {
+          closeModal();
+          setTimeout(() => {
+            queryClient.invalidateQueries(["getMe"]);
+          }, 300);
+        }}
+        className={`px-7 py-1 !text-2xl max-w-[148px] cursor-pointer`}
+      />
+    </Flex>
   );
 }
 

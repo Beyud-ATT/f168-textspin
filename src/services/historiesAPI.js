@@ -32,4 +32,52 @@ async function totalJoin() {
   }
 }
 
-export { listWordCompleted, listWordSend, totalJoin };
+async function myCode() {
+  try {
+    const res = await axoisBase.get(`${endpoint}/list-code/me`);
+    return res;
+  } catch (error) {
+    console.error("Error in myCode:", error);
+    throw error;
+  }
+}
+
+async function receivedCode() {
+  try {
+    const res = await axoisBase.get(`${endpoint}/list-word/me`);
+    return res;
+  } catch (error) {
+    console.error("Error in receivedCode:", error);
+    throw error;
+  }
+}
+
+async function missionHistory() {
+  try {
+    const res = await axoisBase.get(`${endpoint}/list-mission/me`);
+    return res;
+  } catch (error) {
+    console.error("Error in missionHistory:", error);
+    throw error;
+  }
+}
+
+async function sendWord() {
+  try {
+    const res = await axoisBase.get(`${endpoint}/list-send-word/me`);
+    return res;
+  } catch (error) {
+    console.error("Error in sendWord:", error);
+    throw error;
+  }
+}
+
+export {
+  listWordCompleted,
+  listWordSend,
+  totalJoin,
+  myCode,
+  receivedCode,
+  missionHistory,
+  sendWord,
+};

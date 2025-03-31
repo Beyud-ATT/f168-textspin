@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMe } from "../services/accountAPI";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function useGetMe() {
   const { isAuthenticated, logout } = useAuth();

@@ -2,17 +2,22 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   // useEffect,
   useState,
 } from "react";
-import { login as loginAPI } from "../../services/authAPI";
+import { login as loginAPI } from "../services/authAPI";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router";
 // import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   // const [fpHash, setFpHash] = useState("");
+  const navigate = useNavigate();
+  const pathname = useLocation().pathname;
+
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("token") !== null
   );
@@ -52,6 +57,16 @@ function AuthProvider({ children }) {
     localStorage.removeItem("username");
     setIsAuthenticated(false);
   }, []);
+
+  useEffect(() => {
+    if (
+      pathname.includes("/account") &&
+      localStorage.getItem("token") === null
+    ) {
+      setIsAuthenticated(false);
+      navigate("/");
+    }
+  }, [pathname]);
 
   return (
     <AuthContext.Provider

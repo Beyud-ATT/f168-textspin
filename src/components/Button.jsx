@@ -6,6 +6,7 @@ export default function CustomButton({
   active = true,
   style,
   className,
+  prefix,
   ...rest
 }) {
   return (
@@ -26,6 +27,7 @@ export default function CustomButton({
       } md:text-lg text-[${text}] font-bold px-${px} py-${py} ${className}`}
       {...rest}
     >
+      {prefix && <span className="mr-2">{prefix}</span>}
       {label}
     </button>
   );

@@ -1,6 +1,7 @@
-import CustomButton from "./Button";
+import { Image } from "antd";
 import { CompoundModal } from "./CompoundModal";
 import MissionTable from "./MissionTable";
+import MissionMobileBtn from "../assets/mission-mobile-btn.png";
 
 function MissionMobileModalInner() {
   return <MissionTable />;
@@ -11,12 +12,12 @@ export default function MissionMobileModal() {
     <CompoundModal>
       <CompoundModal.Trigger
         render={(openModal) => (
-          <CustomButton
-            label="nhiệm vụ"
-            px="5"
-            py="1"
-            text="14px"
+          <Image
+            src={MissionMobileBtn}
+            preview={false}
+            alt="mission-mobile-btn"
             onClick={openModal}
+            className="my-3"
           />
         )}
       />

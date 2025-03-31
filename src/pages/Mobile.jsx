@@ -8,19 +8,19 @@ import GetHelpModal from "../components/GetHelpModal";
 import SendWordHistory from "../components/SendWordHistory";
 import DrawTextModal from "../components/DrawTextModal";
 import CombineTextModal from "../components/CombineTextModal";
-import MissionMobileModal from "../components/MissionMobileModal";
 import RewardMobileModal from "../components/RewardMobileModal";
 import CharacterDrawed from "../components/CharacterDrawed";
 import MobileHistoryTabs from "../components/MobileHistoryTabs";
-import CommentsMobileModal from "../components/CommentsMobileModal";
 import SendWordModal from "../components/SendWordModal";
 import useTotalJoin from "../hooks/useTotalJoin";
+import CommentsMobile from "../components/CommentsMobileModal";
+import MissionMobileModal from "../components/MissionMobile";
 
 export default function Mobile() {
   const { totalJoin } = useTotalJoin();
 
   return (
-    <Flex vertical gap={20}>
+    <Flex vertical gap={10}>
       <Flex justify="center" align="center">
         <Image
           src={MainImg1}
@@ -85,14 +85,19 @@ export default function Mobile() {
         </Flex>
       </Flex>
 
-      <Flex justify="center" align="center" className="w-full gap-16">
-        <RewardMobileModal />
+      <Flex justify="center" align="center">
         <MissionMobileModal />
       </Flex>
 
-      <MobileHistoryTabs />
+      <Flex justify="center" align="center">
+        <CommentsMobile />
+      </Flex>
 
-      <CommentsMobileModal />
+      <Flex justify="center" align="center" className="w-full gap-16">
+        <RewardMobileModal />
+      </Flex>
+
+      <MobileHistoryTabs />
     </Flex>
   );
 }

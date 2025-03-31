@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import ShinningEffect from "../assets/shinning-effect.gif";
 
 const characters = [
   "f",
@@ -134,10 +135,10 @@ const CharacterAnimation = ({ restartFlag, randomWord = "1" }) => {
   }, [restartFlag, handleRestart]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className=" flex items-center justify-center relative">
+    <div className="flex flex-col items-center justify-center w-[200px] h-[200px] bg-[url('/src/assets/shinning-effect.gif')] bg-contain bg-no-repeat bg-top">
+      <div className="flex items-center justify-center">
         <div
-          className={`text-8xl font-bold z-10 uppercase text-center text-[#FFF9EA]`}
+          className={`text-7xl font-bold z-10 uppercase text-center text-[#FFF9EA]`}
           style={{
             filter: `blur(${blurAmount}px)`,
             textShadow: `0 0 ${blurAmount * 2}px rgba(59, 130, 246, 0.8)`,
@@ -146,8 +147,8 @@ const CharacterAnimation = ({ restartFlag, randomWord = "1" }) => {
             borderRadius: "12.154px",
             border: "1.772px solid #FFF8E3",
             background: "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)",
-            width: "120px",
-            height: "115px",
+            width: "93px",
+            height: "88px",
           }}
         >
           {currentChar}

@@ -4,7 +4,7 @@ import CustomButton from "./Button";
 import useGetMe from "../hooks/useGetMe";
 import { MISSION_TYPE } from "../utils/constant";
 import useMissionComplete from "../hooks/useMissionComplete";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import useMissions from "../hooks/useMissions";
 
 function AcceptButton({
@@ -54,7 +54,8 @@ export default function MissionTable() {
       <p
         className="md:text-4xl min-[425px]:text-3xl text-xl font-carbon absolute md:top-[20%] top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
-          background: "linear-gradient(180deg, #FB8C00 0%, #D63200 125.86%)",
+          background:
+            "linear-gradient(180deg, var(--orange-shade) 0%, #D63200 125.86%)",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",

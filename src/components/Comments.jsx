@@ -34,7 +34,9 @@ export default function Comments() {
                 key={index}
                 className="flex lg:flex-row flex-col gap-2 text-[16px]"
               >
-                <p className="text-[#FB8C00] uppercase">{comment.username}: </p>
+                <p className="text-[var(--orange-shade)] uppercase">
+                  {comment.username}:{" "}
+                </p>
                 <p>{comment.message}</p>
               </div>
             );
@@ -54,7 +56,7 @@ export default function Comments() {
             suffix={
               <button
                 type="submit"
-                className="text-white text-lg font-bold font-carbon px-8 py-1 rounded-full bg-[#FB8C00]"
+                className="text-white text-lg font-bold font-carbon px-8 py-1 rounded-full bg-[var(--orange-shade)]"
               >
                 Gửi
               </button>

@@ -32,6 +32,7 @@
   --header-bg: #1f0404;
   --text-color: #fff7c9;
   --bg-color: #fff9eb;
+  --orange-shade: #fb8c00;
 
   ::-webkit-scrollbar {
     width: 3px;

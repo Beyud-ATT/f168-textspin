@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Flex } from "antd";
-import { toast } from "react-toastify";
 import { matchWord } from "../services/accountAPI";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function CustomText({ text, className }) {
   return (

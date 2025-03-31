@@ -1,9 +1,12 @@
 import { useRef } from "react";
-import { Input, Form } from "antd";
+import { Input, Form, Flex, Image } from "antd";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CustomButton from "./Button";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { useSearchParams } from "react-router";
+import { IoLogoAndroid } from "react-icons/io";
+import { BsApple } from "react-icons/bs";
+import RewardImg from "../assets/reward-1.webp";
 
 const LoginModalForm = () => {
   const { login } = useAuth();
@@ -40,99 +43,122 @@ const LoginModalForm = () => {
   };
 
   return (
-    <div className="custom-gradient-bg">
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={handleSubmit}
-        className="bg-[var(--bg-color)] rounded-lg flex flex-col justify-center h-full !px-10 !py-5"
-      >
-        <Form.Item
-          label={
-            <span className="text-gray-800 font-medium">Tên đăng nhập</span>
-          }
-          name="username"
+    <>
+      <Flex justify="center" align="center">
+        <Image
+          src={RewardImg}
+          preview={false}
+          alt="login-img"
+          width={400}
+          height={355}
+          className="translate-y-7"
+        />
+      </Flex>
+      <div className="custom-gradient-bg">
+        <Form
+          form={form}
+          layout="vertical"
+          onFinish={handleSubmit}
+          className="bg-[var(--bg-color)] rounded-lg flex flex-col justify-center h-full !px-10 !py-5"
         >
-          <Input
-            placeholder="Nhập tên đăng nhập của bạn"
-            className="p-3 rounded-md border border-gray-300"
-          />
-        </Form.Item>
+          <Form.Item
+            label={
+              <span className="text-gray-800 font-medium">
+                Nhập tên đăng nhập của bạn tại F168
+              </span>
+            }
+            name="username"
+          >
+            <Input
+              placeholder="Nhập tên đăng nhập của bạn"
+              className="p-3 rounded-md border border-gray-300"
+            />
+          </Form.Item>
 
-        <Form.Item
-          label={
-            <span className="text-gray-800 font-medium">
-              4 số cuối tài khoản ngân hàng
-            </span>
-          }
-          name="accountDigits"
-        >
-          <div className="flex justify-center items-center gap-5">
-            <Form.Item
-              name={"digit1"}
-              noStyle
-              rules={[{ required: true, message: "" }]}
-            >
-              <Input
-                ref={digit1Ref}
-                maxLength={1}
-                className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
-                onChange={(e) => handleDigitChange(e, digit2Ref)}
-              />
-            </Form.Item>
+          <Form.Item
+            label={
+              <span className="text-gray-800 font-medium">
+                4 số cuối tài khoản ngân hàng
+              </span>
+            }
+            name="accountDigits"
+          >
+            <div className="flex justify-center items-center gap-5">
+              <Form.Item
+                name={"digit1"}
+                noStyle
+                rules={[{ required: true, message: "" }]}
+              >
+                <Input
+                  ref={digit1Ref}
+                  maxLength={1}
+                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  onChange={(e) => handleDigitChange(e, digit2Ref)}
+                />
+              </Form.Item>
 
-            <Form.Item
-              name={"digit2"}
-              noStyle
-              rules={[{ required: true, message: "" }]}
-            >
-              <Input
-                ref={digit2Ref}
-                maxLength={1}
-                className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
-                onChange={(e) => handleDigitChange(e, digit3Ref)}
-              />
-            </Form.Item>
+              <Form.Item
+                name={"digit2"}
+                noStyle
+                rules={[{ required: true, message: "" }]}
+              >
+                <Input
+                  ref={digit2Ref}
+                  maxLength={1}
+                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  onChange={(e) => handleDigitChange(e, digit3Ref)}
+                />
+              </Form.Item>
 
-            <Form.Item
-              name={"digit3"}
-              noStyle
-              rules={[{ required: true, message: "" }]}
-            >
-              <Input
-                ref={digit3Ref}
-                maxLength={1}
-                className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
-                onChange={(e) => handleDigitChange(e, digit4Ref)}
-              />
-            </Form.Item>
-            <Form.Item
-              name={"digit4"}
-              noStyle
-              rules={[{ required: true, message: "" }]}
-            >
-              <Input
-                ref={digit4Ref}
-                maxLength={1}
-                className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
-              />
-            </Form.Item>
-          </div>
-        </Form.Item>
+              <Form.Item
+                name={"digit3"}
+                noStyle
+                rules={[{ required: true, message: "" }]}
+              >
+                <Input
+                  ref={digit3Ref}
+                  maxLength={1}
+                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  onChange={(e) => handleDigitChange(e, digit4Ref)}
+                />
+              </Form.Item>
+              <Form.Item
+                name={"digit4"}
+                noStyle
+                rules={[{ required: true, message: "" }]}
+              >
+                <Input
+                  ref={digit4Ref}
+                  maxLength={1}
+                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                />
+              </Form.Item>
+            </div>
+          </Form.Item>
 
-        <Form.Item className="flex flex-col justify-center items-center">
-          <CustomButton
-            label="Đăng nhập"
-            px={5}
-            py={1}
-            htmlType="submit"
-            onClick={() => {
-              console.log("submit");
-            }}
-          />
-        </Form.Item>
-      </Form>
-    </div>
+          <Form.Item className="flex flex-col justify-center items-center">
+            <CustomButton label="Đăng nhập" px={5} py={1} htmlType="submit" />
+          </Form.Item>
+
+          <Flex justify="center" align="center" gap={10}>
+            <CustomButton
+              label="TẢI APP ANDROID"
+              px={2}
+              py={1}
+              prefix={<IoLogoAndroid className="text-3xl" />}
+              className={`flex items-center`}
+            />
+            <CustomButton
+              label="TẢI APP IOS"
+              px={7}
+              py={1}
+              prefix={<BsApple className="text-2xl -translate-y-0.5" />}
+              className={`flex items-center`}
+            />
+          </Flex>
+        </Form>
+      </div>
+    </>
   );
 };
 
@@ -143,7 +169,7 @@ const LoginModal = () => {
       <CompoundModal.Trigger
         render={(openModal) => (
           <button
-            className="md:w-[212px] md:h-[52px] w-[101px] h-[25px] p-3"
+            className="lg:w-[212px] lg:h-[52px] md:w-[150px] md:h-[35px] w-[101px] h-[25px] p-3"
             style={{
               borderRadius: "44.081px",
               border: "1.16px solid #FFF9E7",
@@ -153,7 +179,7 @@ const LoginModal = () => {
             }}
             onClick={openModal}
           >
-            <span className="md:text-xl text-[10px] text-[var(--text-color)] uppercase font-bold h-full flex justify-center items-center">
+            <span className="lg:text-xl md:text-sm text-[10px] text-[var(--text-color)] uppercase font-bold h-full flex justify-center items-center">
               đăng nhập
             </span>
           </button>

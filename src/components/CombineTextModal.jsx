@@ -4,7 +4,7 @@ import { CompoundModal, useModal } from "./CompoundModal";
 import DrawBg from "../assets/draw-bg.png";
 import CustomButton from "./Button";
 import CombineTextEffectBig from "../assets/combine-text-effect-big.gif";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
 import NumberTransition from "./NumberTransition";
 import { useRef, useState } from "react";

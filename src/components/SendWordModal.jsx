@@ -1,9 +1,7 @@
 import { Flex, Form, Image, Input } from "antd";
-import ButtonBg from "../assets/image_8.png";
-import DeactiveButtonBg from "../assets/deactivate-btn.png";
 import Button1Icon from "../assets/send-word.png";
 import { CompoundModal, useModal } from "./CompoundModal";
-import { useAuth } from "../assets/contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import useGetMe from "../hooks/useGetMe";
 import TableHeaderBG from "../assets/table-header-bg.png";
 import SendWordBtn from "../assets/give-gift-btn.png";
