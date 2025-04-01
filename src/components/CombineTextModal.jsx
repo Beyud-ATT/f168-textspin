@@ -12,7 +12,7 @@ import { toPng } from "html-to-image";
 import { useQueryClient } from "@tanstack/react-query";
 
 function CombineTextModalInner() {
-  const { closeModal } = useModal();
+  const { isOpen, closeModal } = useModal();
   const queryClient = useQueryClient();
   const captureRef = useRef();
   const [screenshotUrl, setScreenshotUrl] = useState(null);
@@ -82,7 +82,7 @@ function CombineTextModalInner() {
           className="absolute top-[28%] max-[350px]:top-[23%] left-[49%] -translate-x-1/2 z-30"
           onClick={capture}
         >
-          <NumberTransition />
+          <NumberTransition isOpen={isOpen} />
         </div>
         <div className="absolute top-[48%] max-[350px]:top-[40%] left-[49%] -translate-x-1/2">
           <Flex vertical className="items-center">

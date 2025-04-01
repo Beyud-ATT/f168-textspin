@@ -21,12 +21,16 @@ function CustomText({ text, className }) {
   );
 }
 
-export default function NumberTransition() {
+export default function NumberTransition({ isOpen }) {
   const { isAuthenticated } = useAuth();
   const [currentImage, setCurrentImage] = useState(1);
   const [code, setCode] = useState("");
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     async function handleCombineText() {
       const res = await matchWord();
       if (res.status === 200) {
@@ -36,7 +40,7 @@ export default function NumberTransition() {
     if (isAuthenticated) {
       handleCombineText();
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, isOpen]);
 
   const revealVariants = {
     hidden: { clipPath: "inset(0 100% 0 0)" },
@@ -50,8 +54,8 @@ export default function NumberTransition() {
   };
 
   const handleTransition = useCallback(() => {
-    setCurrentImage(currentImage === 1 ? 2 : 1);
-  }, [currentImage]);
+    setCurrentImage(currentImage === 1 && isOpen ? 2 : 1);
+  }, [currentImage, isOpen]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,6 +70,13 @@ export default function NumberTransition() {
       clearInterval(interval);
     };
   }, [handleTransition, currentImage]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setCurrentImage(1);
+      setCode("");
+    }
+  }, [isOpen]);
 
   return (
     <div className="flex flex-col items-center justify-center">
