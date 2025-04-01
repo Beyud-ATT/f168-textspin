@@ -9,9 +9,11 @@ import useGetMe from "../hooks/useGetMe";
 import NumberTransition from "./NumberTransition";
 import { useRef, useState } from "react";
 import { toPng } from "html-to-image";
+import { useQueryClient } from "@tanstack/react-query";
 
 function CombineTextModalInner() {
   const { closeModal } = useModal();
+  const queryClient = useQueryClient();
   const captureRef = useRef();
   const [screenshotUrl, setScreenshotUrl] = useState(null);
 
@@ -92,7 +94,12 @@ function CombineTextModalInner() {
       </div>
       <CustomButton
         label="Đóng"
-        onClick={closeModal}
+        onClick={() => {
+          closeModal();
+          setTimeout(() => {
+            queryClient.invalidateQueries(["getMe"]);
+          }, 300);
+        }}
         className={`px-7 py-1 !text-2xl z-30 absolute bottom-[19%] max-[350px]:bottom-[27%] left-[48%] -translate-x-1/2 w-[155px] cursor-pointer`}
       />
       <ImageAntd
