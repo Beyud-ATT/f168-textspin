@@ -32,9 +32,11 @@ async function totalJoin() {
   }
 }
 
-async function myCode() {
+async function myCode(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-code/me`);
+    const res = await axoisBase.get(`${endpoint}/list-code/me`, {
+      params,
+    });
     return res;
   } catch (error) {
     console.error("Error in myCode:", error);
@@ -42,9 +44,11 @@ async function myCode() {
   }
 }
 
-async function receiveWord() {
+async function receiveWord(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-word/me`);
+    const res = await axoisBase.get(`${endpoint}/list-word/me`, {
+      params,
+    });
     return res;
   } catch (error) {
     console.error("Error in receivedCode:", error);
@@ -52,9 +56,11 @@ async function receiveWord() {
   }
 }
 
-async function missionHistory() {
+async function missionHistory(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-mission/me`);
+    const res = await axoisBase.get(`${endpoint}/list-mission/me`, {
+      params,
+    });
     return res;
   } catch (error) {
     console.error("Error in missionHistory:", error);
@@ -62,9 +68,11 @@ async function missionHistory() {
   }
 }
 
-async function sendWord() {
+async function sendWord(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-word-send/me`);
+    const res = await axoisBase.get(`${endpoint}/list-word-send/me`, {
+      params,
+    });
     return res;
   } catch (error) {
     console.error("Error in sendWord:", error);

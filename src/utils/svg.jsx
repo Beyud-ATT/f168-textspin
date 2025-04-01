@@ -73,7 +73,7 @@ function FB() {
       viewBox="0 0 70 69"
       fill="none"
     >
-      <g clippath="url(#clip0_219_1407)">
+      <g clipPath="url(#clip0_219_1407)">
         <path
           d="M40.3791 68.6572V37.4126H50.8624L52.4352 25.2323H40.3791V17.4571C40.3791 13.9317 41.354 11.5292 46.4151 11.5292L52.8596 11.5266V0.63215C51.7451 0.487321 47.9195 0.155273 43.4669 0.155273C34.1691 0.155273 27.8037 5.83054 27.8037 16.2507V25.2323H17.2886V37.4126H27.8037V68.6572H40.3791Z"
           fill="#FFF7C9"
@@ -133,7 +133,7 @@ function ReceiveWordIcon({ width = 33, height = 33, fill = "#1F0404" }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="File" clippath="url(#clip0_2001_736)">
+      <g id="File" clipPath="url(#clip0_2001_736)">
         <path
           id="Vector"
           d="M25.9287 0.90332V6.65803H31.683L25.9287 0.90332Z"
@@ -173,7 +173,7 @@ function SendWordIcon({ width = 33, height = 33, fill = "#1F0404" }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="Gift" clippath="url(#clip0_2001_1076)">
+      <g id="Gift" clipPath="url(#clip0_2001_1076)">
         <g id="Group">
           <path
             id="Vector"
@@ -225,7 +225,7 @@ function MissionHistoryIcon({ width = 33, height = 33, fill = "#1F0404" }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="Notes" clippath="url(#clip0_2001_1312)">
+      <g id="Notes" clipPath="url(#clip0_2001_1312)">
         <g id="Group">
           <g id="Group_2">
             <path
@@ -295,7 +295,7 @@ function MyCodeIcon({ width = 33, height = 33, fill = "#1F0404" }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="Gift card" clippath="url(#clip0_2001_1100)">
+      <g id="Gift card" clipPath="url(#clip0_2001_1100)">
         <g id="Group">
           <path
             id="Vector"

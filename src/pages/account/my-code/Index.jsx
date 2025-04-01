@@ -55,7 +55,6 @@ export default function MyCode() {
           pagination={false}
           loading={isLoading}
           scroll={{ y: 400 }}
-          sticky
         />
       </div>
     </div>
