@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function DateRageFilter({ onChange, ...rest }) {
-  const [dateRange, setDateRange] = useState([null, null]);
+export default function DateRageFilter({ onChange, value, ...rest }) {
+  const [dateRange, setDateRange] = useState(value || [null, null]);
   const [startDate, endDate] = dateRange;
+
+  useEffect(() => {
+    if (value) {
+      setDateRange(value);
+    }
+  }, [value]);
 
   const handleDateChange = (date) => {
     setDateRange(date);

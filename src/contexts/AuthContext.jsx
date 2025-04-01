@@ -9,6 +9,7 @@ import {
 import { login as loginAPI } from "../services/authAPI";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
+import { useQueryClient } from "@tanstack/react-query";
 // import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 const AuthContext = createContext();
@@ -17,6 +18,7 @@ function AuthProvider({ children }) {
   // const [fpHash, setFpHash] = useState("");
   const navigate = useNavigate();
   const pathname = useLocation().pathname;
+  const queryClient = useQueryClient();
 
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("token") !== null
@@ -57,6 +59,7 @@ function AuthProvider({ children }) {
     localStorage.removeItem("username");
     setIsAuthenticated(false);
     navigate("/");
+    queryClient.clear();
   }, [navigate]);
 
   useEffect(() => {
