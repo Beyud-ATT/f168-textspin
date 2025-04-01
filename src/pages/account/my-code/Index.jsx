@@ -1,40 +1,43 @@
 import { Flex, Table, Typography } from "antd";
-import DateRageFilter from "../components/DateRageFilter";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
+import useMyCode from "../../../hooks/useMyCode";
+import moment from "moment";
+import { FaRegCopy } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Thời gian nhận",
+    dataIndex: "createdAt",
+    key: "createdAt",
+    render: (text) => moment(text).format("DD/MM/YYYY"),
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Mã bốc thăm đã nhận",
+    dataIndex: "code",
+    key: "code",
+    render: (text) => {
+      return (
+        <Flex
+          gap={10}
+          justify="center"
+          align="center"
+          className="cursor-pointer"
+          onClick={() => {
+            navigator.clipboard.writeText(text);
+            toast.success("Mã bốc thăm đã được sao chép");
+          }}
+        >
+          <p>{text}</p>
+          <FaRegCopy />
+        </Flex>
+      );
+    },
   },
 ];
 
 export default function MyCode() {
+  const { myCode, isLoading } = useMyCode();
+
   return (
     <div
       className="w-full h-fit rounded-lg"
@@ -46,7 +49,14 @@ export default function MyCode() {
         <Typography.Title level={3}>Mã may mắn của tôi</Typography.Title>
       </div>
       <div className="bg-white rounded-lg md:p-6 p-3">
-        <Table columns={columns} dataSource={dataSource} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={myCode?.data}
+          pagination={false}
+          loading={isLoading}
+          scroll={{ y: 400 }}
+          sticky
+        />
       </div>
     </div>
   );

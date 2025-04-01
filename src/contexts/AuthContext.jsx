@@ -56,7 +56,8 @@ function AuthProvider({ children }) {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     setIsAuthenticated(false);
-  }, []);
+    navigate("/");
+  }, [navigate]);
 
   useEffect(() => {
     if (

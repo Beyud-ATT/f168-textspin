@@ -1,40 +1,35 @@
 import { Flex, Table, Typography } from "antd";
 import DateRageFilter from "../components/DateRageFilter";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
+import useGetSendWord from "../../../hooks/useGetSendWord";
+import moment from "moment";
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Thời gian tặng chữ",
+    dataIndex: "createdAt",
+    key: "createdAt",
+    render: (text) => moment(text).format("DD/MM/YYYY HH:mm:ss"),
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Thành viên",
+    dataIndex: "anotherUsername",
+    key: "anotherUsername",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Chữ tặng",
+    dataIndex: "word",
+    key: "word",
+  },
+  {
+    title: "Trạng thái",
+    dataIndex: "status",
+    key: "status",
+    render: () => <span>Hoàn thành</span>,
   },
 ];
 
 export default function SendWord() {
+  const { sendWord, isLoading } = useGetSendWord();
   return (
     <div
       className="w-full h-fit rounded-lg"
@@ -43,7 +38,7 @@ export default function SendWord() {
       }}
     >
       <div className="py-7 px-6 rounded-t-lg">
-        <Typography.Title level={3}>Lịch sử nhận chữ</Typography.Title>
+        <Typography.Title level={3}>Lịch sử tặng chữ</Typography.Title>
         <Flex gap={10} className="!py-4 lg:flex-row lg:items-center flex-col">
           <span className="text-lg">Thời gian tặng chữ</span>
           <DateRageFilter onChange={(date) => console.log(date)} />
@@ -65,8 +60,15 @@ export default function SendWord() {
           </Flex>
         </Flex>
       </div>
-      <div className="bg-white rounded-lg md:p-6 p-3">
-        <Table columns={columns} dataSource={dataSource} pagination={false} />
+      <div className="bg-white rounded-lg md:p-6 p-3 ">
+        <Table
+          columns={columns}
+          dataSource={sendWord?.data}
+          pagination={false}
+          loading={isLoading}
+          scroll={{ y: 400 }}
+          sticky
+        />
       </div>
     </div>
   );

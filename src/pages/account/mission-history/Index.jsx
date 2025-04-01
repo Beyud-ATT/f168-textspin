@@ -1,40 +1,46 @@
 import { Flex, Table, Typography } from "antd";
 import DateRageFilter from "../components/DateRageFilter";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
+import useMissionHistory from "../../../hooks/useMissionHistory";
+import moment from "moment";
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Thời gian nhận",
+    dataIndex: "createdAt",
+    key: "createdAt",
+    render: (text) => moment(text).format("DD/MM/YYYY HH:mm:ss"),
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Loại điểm tích luỹ",
+    dataIndex: "type",
+    key: "type",
+    render: (_, record) => {
+      return (
+        <p>
+          {record?.missionContentTemplete?.replaceAll(
+            "%S",
+            record?.missionGoal
+          )}
+        </p>
+      );
+    },
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Trạng thái",
+    dataIndex: "status",
+    key: "status",
+    render: (_, record) => {
+      return <p>{record?.isCompleted ? "Đã nhận" : "Chưa nhận"}</p>;
+    },
   },
 ];
 
 export default function MissionHistory() {
+  const { missionHistory, isLoading } = useMissionHistory();
+
+  const dataSource = missionHistory?.data?.filter((item) => item.isCompleted);
+  // const dataSource = missionHistory?.data;
+
   return (
     <div
       className="w-full h-fit rounded-lg"
@@ -66,7 +72,14 @@ export default function MissionHistory() {
         </Flex>
       </div>
       <div className="bg-white rounded-lg md:p-6 p-3">
-        <Table columns={columns} dataSource={dataSource} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          pagination={false}
+          loading={isLoading}
+          scroll={{ y: 400 }}
+          sticky
+        />
       </div>
     </div>
   );

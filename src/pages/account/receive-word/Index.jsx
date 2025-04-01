@@ -1,40 +1,35 @@
 import { Flex, Table, Typography } from "antd";
 import DateRageFilter from "../components/DateRageFilter";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
+import useReceiveWord from "../../../hooks/useReceiveWord";
+import moment from "moment";
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Thời gian nhận chữ",
+    dataIndex: "completedAt",
+    key: "completedAt",
+    render: (text) => moment(text).format("DD/MM/YYYY HH:mm:ss"),
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "Thành viên",
+    dataIndex: "username",
+    key: "username",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "Chữ nhận được",
+    dataIndex: "word",
+    key: "word",
+  },
+  {
+    title: "Trạng thái",
+    dataIndex: "status",
+    key: "status",
+    render: () => <span>Hoàn thành</span>,
   },
 ];
 
 export default function ReceiveWord() {
+  const { receiveWord, isLoading } = useReceiveWord();
   return (
     <div
       className="w-full h-fit rounded-lg"
@@ -66,7 +61,14 @@ export default function ReceiveWord() {
         </Flex>
       </div>
       <div className="bg-white rounded-lg md:p-6 p-3">
-        <Table columns={columns} dataSource={dataSource} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={receiveWord?.data}
+          pagination={false}
+          loading={isLoading}
+          scroll={{ y: 400 }}
+          sticky
+        />
       </div>
     </div>
   );

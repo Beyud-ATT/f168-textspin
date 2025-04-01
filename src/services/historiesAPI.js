@@ -42,7 +42,7 @@ async function myCode() {
   }
 }
 
-async function receivedCode() {
+async function receiveWord() {
   try {
     const res = await axoisBase.get(`${endpoint}/list-word/me`);
     return res;
@@ -64,7 +64,7 @@ async function missionHistory() {
 
 async function sendWord() {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-send-word/me`);
+    const res = await axoisBase.get(`${endpoint}/list-word-send/me`);
     return res;
   } catch (error) {
     console.error("Error in sendWord:", error);
@@ -77,7 +77,7 @@ export {
   listWordSend,
   totalJoin,
   myCode,
-  receivedCode,
+  receiveWord,
   missionHistory,
   sendWord,
 };
