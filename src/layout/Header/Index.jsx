@@ -32,7 +32,7 @@ export default function MainHeader({ Layout, ...rest }) {
             <CustomButton
               label="Tài khoản"
               className={`md:px-7 py-1 md:!text-2xl !text-[12px] lg:h-[52px] md:h-[35px] h-[25px] p-3 flex justify-center items-center whitespace-nowrap`}
-              onClick={() => navigate("/account")}
+              onClick={() => navigate("/account/my-code")}
             />
             <Flex justify="center" align="center" gap={10}>
               <Flex vertical gap={5}>

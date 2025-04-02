@@ -32,11 +32,9 @@ async function totalJoin() {
   }
 }
 
-async function myCode(params) {
+async function myCode() {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-code/me`, {
-      params,
-    });
+    const res = await axoisBase.get(`${endpoint}/list-code/me`);
     return res;
   } catch (error) {
     console.error("Error in myCode:", error);

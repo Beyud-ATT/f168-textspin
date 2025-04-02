@@ -143,17 +143,15 @@ const LoginModalForm = () => {
           <Flex justify="center" align="center" gap={10}>
             <CustomButton
               label="TẢI APP ANDROID"
-              px={2}
-              py={1}
-              prefix={<IoLogoAndroid className="text-3xl" />}
-              className={`flex items-center`}
+              prefix={<IoLogoAndroid className="md:text-3xl text-xl" />}
+              className={`flex items-center whitespace-nowrap px-2 py-1`}
             />
             <CustomButton
               label="TẢI APP IOS"
-              px={7}
-              py={1}
-              prefix={<BsApple className="text-2xl -translate-y-0.5" />}
-              className={`flex items-center`}
+              prefix={
+                <BsApple className="md:text-2xl text-lg -translate-y-0.5" />
+              }
+              className={`flex items-center whitespace-nowrap md:px-7 px-5 py-1`}
             />
           </Flex>
         </Form>

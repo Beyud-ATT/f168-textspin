@@ -52,11 +52,11 @@ export default function Comments() {
         <Form.Item name="message" className="w-full h-full rounded-lg !m-0">
           <Input
             placeholder="Nhập số lượng"
-            className="h-[71px]"
+            className="h-[51px]"
             suffix={
               <button
                 type="submit"
-                className="text-white text-lg font-bold font-carbon px-8 py-1 rounded-full bg-[var(--orange-shade)]"
+                className="text-white translate-x-1 text-lg font-bold font-carbon px-8 py-1 rounded-full bg-[var(--orange-shade)]"
               >
                 Gửi
               </button>

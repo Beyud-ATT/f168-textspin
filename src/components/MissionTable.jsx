@@ -23,7 +23,11 @@ function AcceptButton({
         className={`${
           isCompleted ? "px-4" : "px-6"
         } !text-[13px] cursor-pointer`}
-        onClick={() => mutate({ missionType, missionGoal })}
+        onClick={() =>
+          !isCompleted &&
+          isAvailableToAccept &&
+          mutate({ missionType, missionGoal })
+        }
       />
     )
   );

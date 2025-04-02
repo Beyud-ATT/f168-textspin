@@ -1,8 +1,19 @@
 import { Flex } from "antd";
 import LeftNav from "./LeftNav";
-import { Outlet } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export default function Account() {
+  const navigate = useNavigate();
+  const pathName = useLocation().pathname;
+  const arr = pathName.split("/").filter(Boolean);
+
+  useEffect(() => {
+    if (arr.length < 2 && pathName.includes("/account")) {
+      navigate("/account/my-code");
+    }
+  }, [pathName, arr, navigate]);
+
   return (
     <Flex className="lg:flex-row flex-col lg:gap-4">
       <LeftNav />

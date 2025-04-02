@@ -12,7 +12,7 @@ export default function RewardMobileModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <div
-            className="fixed top-[30%] left-0 cursor-pointer z-30"
+            className="fixed top-[17%] left-0 cursor-pointer z-30"
             onClick={openModal}
           >
             <Image

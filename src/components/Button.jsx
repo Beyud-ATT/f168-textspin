@@ -28,7 +28,7 @@ export default function CustomButton({
       {...rest}
     >
       {prefix && <span className="mr-2">{prefix}</span>}
-      {label}
+      <span>{label}</span>
     </button>
   );
 }
