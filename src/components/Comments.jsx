@@ -51,7 +51,7 @@ export default function Comments() {
       >
         <Form.Item name="message" className="w-full h-full rounded-lg !m-0">
           <Input
-            placeholder="Nhập số lượng"
+            placeholder="Nhập bình luận"
             className="h-[51px]"
             suffix={
               <button
