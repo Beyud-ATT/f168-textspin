@@ -1,10 +1,14 @@
 import Mobile from "./Mobile";
 import PC from "./PC";
-import EventDetail from "../assets/event-detail.png";
-import GetHelpDetail from "../assets/gethelp-detail.png";
-import EventDetailMB from "../assets/event-detail-mb.png";
-import GetHelpDetailMB from "../assets/gethelp-detail-mb.png";
 import { Flex, Image } from "antd";
+import PC1 from "../assets/pc-1.webp";
+import PC2 from "../assets/pc-2.webp";
+import PC3 from "../assets/pc-3.webp";
+import PC4 from "../assets/pc-4.webp";
+import MB1 from "../assets/mb-1.webp";
+import MB2 from "../assets/mb-2.webp";
+import MB3 from "../assets/mb-3.webp";
+import MB4 from "../assets/mb-4.webp";
 
 export default function Main() {
   return (
@@ -21,18 +25,27 @@ export default function Main() {
         vertical
         className="md:flex md:visible md:opacity-100 md:h-auto md:w-auto h-0 w-0 hidden invisible opacity-0 lg:!px-6 !px-4 xl:gap-20 gap-5"
       >
-        <Flex justify="center" align="center">
-          <Image
-            src={EventDetail}
-            preview={false}
-            alt="event-detail"
-            loading="lazy"
-          />
+        <Flex justify="center" align="center" gap={40}>
+          <Image src={PC4} preview={false} alt="event-detail" loading="lazy" />
+          <Flex vertical justify="space-between" gap={40}>
+            <Image
+              src={PC3}
+              preview={false}
+              alt="event-detail"
+              loading="lazy"
+            />
+            <Image
+              src={PC2}
+              preview={false}
+              alt="event-detail"
+              loading="lazy"
+            />
+          </Flex>
         </Flex>
 
         <Flex justify="center" align="center">
           <Image
-            src={GetHelpDetail}
+            src={PC1}
             preview={false}
             alt="gethelp-detail"
             loading="lazy"
@@ -43,21 +56,34 @@ export default function Main() {
       {/* Mobile */}
       <Flex
         vertical
-        className="md:hidden md:invisible md:opacity-0 md:h-0 md:w-0 flex visible opacity-100 !px-2"
-        gap={10}
+        className="md:hidden md:invisible md:opacity-0 md:h-0 md:w-0 flex visible opacity-100 !px-2 !mb-6"
+        gap={30}
       >
         <Flex justify="center" align="center">
+          <Image src={MB1} preview={false} alt="event-detail" loading="lazy" />
+        </Flex>
+
+        <Flex justify="center" align="center">
           <Image
-            src={EventDetailMB}
+            src={MB2}
             preview={false}
-            alt="event-detail"
+            alt="gethelp-detail"
             loading="lazy"
           />
         </Flex>
 
         <Flex justify="center" align="center">
           <Image
-            src={GetHelpDetailMB}
+            src={MB3}
+            preview={false}
+            alt="gethelp-detail"
+            loading="lazy"
+          />
+        </Flex>
+
+        <Flex justify="center" align="center">
+          <Image
+            src={MB4}
             preview={false}
             alt="gethelp-detail"
             loading="lazy"
