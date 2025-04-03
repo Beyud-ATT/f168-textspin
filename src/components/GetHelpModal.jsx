@@ -5,6 +5,28 @@ import { Flex, Image } from "antd";
 import { FB, ShareLink } from "../utils/svg";
 import { toast } from "react-toastify";
 import useGetMe from "../hooks/useGetMe";
+import Tiktok from "../assets/tiktok.png";
+import Telegram from "../assets/telegram.png";
+
+function ShareItem({ children, onClick, ...rest }) {
+  return (
+    <Flex
+      justify="center"
+      align="center"
+      className="w-[78px] h-[78px]"
+      style={{
+        borderRadius: "17.044px",
+        border: "0.955px solid #FFF9E7",
+        background: "linear-gradient(0deg, #B9242D 0%, #D65E3D 100%)",
+        boxShadow: "0px 3.819px 0px 0px #892700",
+      }}
+      onClick={onClick}
+      {...rest}
+    >
+      {children}
+    </Flex>
+  );
+}
 
 function GetHelpInner() {
   const { me } = useGetMe();
@@ -39,41 +61,32 @@ function GetHelpInner() {
           </p>
         </div>
 
-        <Flex className="h-[70%] items-center justify-center md:gap-15 gap-5">
-          <Flex
-            justify="center"
-            align="center"
-            className="w-[120px] h-[120px]"
-            style={{
-              borderRadius: "25.975px",
-              border: "1.455px solid #FFF9E7",
-              background: "linear-gradient(0deg, #B9242D 0%, #D65E3D 100%)",
-              boxShadow: "0px 5.82px 0px 0px #892700",
-            }}
-            onClick={() => {
-              handleShare();
-            }}
-          >
+        <Flex
+          className="md:w-full w-[70%] !mx-auto h-[70%] items-center justify-center md:gap-6 gap-2"
+          wrap
+        >
+          <ShareItem onClick={handleShare}>
+            <Image src={Tiktok} preview={false} alt="tiktok" loading="lazy" />
+          </ShareItem>
+          <ShareItem onClick={handleShare}>
+            <Image
+              src={Telegram}
+              preview={false}
+              alt="telegram"
+              loading="lazy"
+            />
+          </ShareItem>
+          <ShareItem onClick={handleShare}>
             <FB />
-          </Flex>
-
-          <Flex
-            justify="center"
-            align="center"
-            className="w-[120px] h-[120px]"
-            style={{
-              borderRadius: "25.975px",
-              border: "1.455px solid #FFF9E7",
-              background: "linear-gradient(0deg, #B9242D 0%, #D65E3D 100%)",
-              boxShadow: "0px 5.82px 0px 0px #892700",
-            }}
+          </ShareItem>
+          <ShareItem
             onClick={() => {
               handleCopy("Link chia sẻ");
               toast.success("Đã copy link chia sẻ");
             }}
           >
             <ShareLink />
-          </Flex>
+          </ShareItem>
         </Flex>
       </div>
     </div>
