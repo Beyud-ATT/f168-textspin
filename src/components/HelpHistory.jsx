@@ -3,6 +3,8 @@ import { Image, Spin } from "antd";
 import useHelpHistory from "../hooks/useHelpHistory";
 import dayjs from "dayjs";
 
+const word = ["1", "6", "8"];
+
 export default function HelpHistory({ hideHeader = false }) {
   const { helpHistory, isLoading } = useHelpHistory();
 
@@ -38,7 +40,9 @@ export default function HelpHistory({ hideHeader = false }) {
                   {dayjs(item.completedAt).format("YYYY-MM-DD")}
                 </p>
                 <p className="uppercase">{item.username}</p>
-                <p className="uppercase">Tặng bạn chữ {item.word}</p>
+                <p className="uppercase">
+                  Gửi tặng {word.includes(item.word) ? "số" : "chữ"} {item.word}
+                </p>
               </div>
             </div>
           ))}

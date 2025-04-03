@@ -26,7 +26,7 @@ export default function CharacterDrawed() {
           <div
             key={index}
             wordText={index}
-            className={`relative flex justify-center items-center 
+            className={`relative flex justify-center items-center
                   md:w-[116px] md:h-[109px] w-[65px] h-[61px]
                   rounded-xl border-[1.8px] border-[#FFF8E3]`}
             style={{
@@ -35,7 +35,7 @@ export default function CharacterDrawed() {
                 : "linear-gradient(180deg, #FFE0B1 0%, #ECBF86 100%)",
             }}
           >
-            <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5 -translate-y-0.5">
+            <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5 -translate-y-0.5 mx-auto">
               {character.wordText}
             </span>
             {isAvailable && (

@@ -22,7 +22,7 @@ function AcceptButton({
         active={isAvailableToAccept && !isCompleted}
         className={`${
           isCompleted ? "px-4" : "px-6"
-        } !text-[13px] cursor-pointer`}
+        } !text-[13px] cursor-pointer h-[30px] my-auto`}
         onClick={() =>
           !isCompleted &&
           isAvailableToAccept &&
@@ -70,7 +70,7 @@ export default function MissionTable() {
 
       <Flex
         vertical
-        className="absolute min-[425px]:top-[28%] top-[23%] -translate-x-2 flex justify-center items-center md:gap-3 gap-2"
+        className="absolute min-[425px]:top-[28%] top-[23%] -translate-x-2 flex justify-center items-center gap-3"
       >
         {missions?.map((mission, index) => {
           const {
@@ -109,10 +109,13 @@ export default function MissionTable() {
             });
 
           return (
-            <Flex key={index} className="w-full justify-between gap-3">
+            <Flex
+              key={index}
+              className="w-full justify-between items-center gap-3"
+            >
               <div
                 key={Math.random()}
-                className="md:h-[40px] h-auto md:px-3 px-2 flex justify-center items-center "
+                className="md:h-[40px] h-auto md:px-3 px-2 flex justify-center items-center"
                 style={{
                   borderRadius: "8.487px",
                   background: "#FFECDC",
@@ -122,7 +125,7 @@ export default function MissionTable() {
               >
                 <div
                   key={`${Math.random()}_index`}
-                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] md:text-[14px] text-[10px]"
+                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[14px]"
                 >
                   {missionTitle}
                 </div>

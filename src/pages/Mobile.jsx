@@ -61,10 +61,10 @@ export default function Mobile() {
                   vertical
                   className="absolute bottom-0 left-0 w-full h-full -translate-y-0.5"
                 >
-                  <p className="text-white text-lg font-bd-street-sign">
+                  <p className="text-white text-lg font-bd-street-sign mx-auto">
                     {Intl.NumberFormat().format(totalJoin?.data)}
                   </p>
-                  <div className="flex items-center justify-center gap-1">
+                  <div className="flex items-center justify-center gap-1 mx-auto">
                     <FaUsers className="text-white text-[10px]" />
                     <span className="text-white font-extralight text-[10px] uppercase">
                       người tham gia

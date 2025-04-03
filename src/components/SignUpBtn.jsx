@@ -2,7 +2,11 @@ import { Link } from "react-router";
 
 export default function SignUpBtn() {
   return (
-    <Link to="" target="_blank" className="leading-0">
+    <Link
+      to="https://f16878.vip/?id=379950793&currency=VND&type=2"
+      target="_blank"
+      className="leading-0"
+    >
       <button
         style={{
           borderRadius: "44.081px",

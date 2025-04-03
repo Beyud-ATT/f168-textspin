@@ -92,7 +92,7 @@ const LoginModalForm = () => {
                 <Input
                   ref={digit1Ref}
                   maxLength={1}
-                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  className="md:!w-[63px] md:!h-[63px] !w-[53px] !h-[53px] text-center text-lg border border-gray-300 rounded-md"
                   onChange={(e) => handleDigitChange(e, digit2Ref)}
                 />
               </Form.Item>
@@ -105,7 +105,7 @@ const LoginModalForm = () => {
                 <Input
                   ref={digit2Ref}
                   maxLength={1}
-                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  className="md:!w-[63px] md:!h-[63px] !w-[53px] !h-[53px] text-center text-lg border border-gray-300 rounded-md"
                   onChange={(e) => handleDigitChange(e, digit3Ref)}
                 />
               </Form.Item>
@@ -118,7 +118,7 @@ const LoginModalForm = () => {
                 <Input
                   ref={digit3Ref}
                   maxLength={1}
-                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  className="md:!w-[63px] md:!h-[63px] !w-[53px] !h-[53px] text-center text-lg border border-gray-300 rounded-md"
                   onChange={(e) => handleDigitChange(e, digit4Ref)}
                 />
               </Form.Item>
@@ -130,7 +130,7 @@ const LoginModalForm = () => {
                 <Input
                   ref={digit4Ref}
                   maxLength={1}
-                  className="!w-[63px] !h-[63px] text-center text-lg border border-gray-300 rounded-md"
+                  className="md:!w-[63px] md:!h-[63px] !w-[53px] !h-[53px] text-center text-lg border border-gray-300 rounded-md"
                 />
               </Form.Item>
             </div>
@@ -183,7 +183,7 @@ const LoginModal = () => {
           </button>
         )}
       />
-      <CompoundModal.Content>
+      <CompoundModal.Content style={{ top: 0 }}>
         <LoginModalForm />
       </CompoundModal.Content>
     </CompoundModal>
