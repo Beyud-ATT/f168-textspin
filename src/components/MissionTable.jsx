@@ -125,7 +125,7 @@ export default function MissionTable() {
               >
                 <div
                   key={`${Math.random()}_index`}
-                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-[120px] text-[14px]"
+                  className="min-[425px]:w-[200px] min-[425px]:text-auto w-full text-[14px]"
                 >
                   {missionTitle}
                 </div>

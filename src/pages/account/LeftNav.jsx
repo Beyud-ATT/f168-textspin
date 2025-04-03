@@ -56,7 +56,7 @@ function NavigationMenu() {
             <p
               className={`${
                 isActive ? "text-white font-bold" : "text-[#1F0404]"
-              } md:text-lg text-[10px]`}
+              } md:text-lg text-[8px] whitespace-nowrap`}
             >
               {item.label}
             </p>

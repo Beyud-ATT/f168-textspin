@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const columns = [
   {
-    title: "Thời gian nhận",
+    title: "Ngày nhận",
     dataIndex: "createdAt",
     key: "createdAt",
     render: (text) => moment(text).format("DD/MM/YYYY"),

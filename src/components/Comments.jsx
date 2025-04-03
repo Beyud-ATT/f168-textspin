@@ -2,9 +2,11 @@ import { Form, Input, Spin } from "antd";
 import useSubmitComments from "../hooks/useSubmitComments";
 import { toast } from "react-toastify";
 import useGetComments from "../hooks/useGetComments";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Comments() {
   const [form] = Form.useForm();
+  const { isAuthenticated } = useAuth();
   const { mutate: submitComment } = useSubmitComments();
   const { comments, isLoading } = useGetComments();
 
@@ -32,10 +34,10 @@ export default function Comments() {
             return (
               <div
                 key={index}
-                className="flex lg:flex-row flex-col gap-2 text-[16px]"
+                className="flex gap-2 md:text-[16px] text-[14px]"
               >
                 <p className="text-[var(--orange-shade)] uppercase">
-                  {comment.username}:{" "}
+                  {comment.username}:
                 </p>
                 <p>{comment.message}</p>
               </div>
@@ -53,10 +55,14 @@ export default function Comments() {
           <Input
             placeholder="Nhập bình luận"
             className="h-[51px]"
+            disabled={!isAuthenticated}
             suffix={
               <button
                 type="submit"
-                className="text-white translate-x-1 text-lg font-bold font-carbon px-8 py-1 rounded-full bg-[var(--orange-shade)]"
+                className={`text-white translate-x-1 text-lg font-bold font-carbon px-8 py-1 rounded-full ${
+                  isAuthenticated ? "bg-[var(--orange-shade)]" : "bg-[#8F8F8F]"
+                }`}
+                disabled={!isAuthenticated}
               >
                 Gửi
               </button>

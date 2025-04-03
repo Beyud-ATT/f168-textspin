@@ -6,10 +6,10 @@ import { useState } from "react";
 
 const columns = [
   {
-    title: "Thời gian nhận chữ",
+    title: "Ngày nhận chữ",
     dataIndex: "completedAt",
     key: "completedAt",
-    render: (text) => moment(text).format("DD/MM/YYYY HH:mm:ss"),
+    render: (text) => moment(text).format("DD/MM/YYYY"),
   },
   {
     title: "Thành viên",
