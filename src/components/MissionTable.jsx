@@ -143,7 +143,7 @@ export default function MissionTable() {
           })}
         </Flex>
 
-        <p className="absolute bottom-0 translate-y-[5%] w-[60%] mx-auto text-center text-[14px] font-carbon max-[426px]:text-[12px] text-red-600">
+        <p className="absolute bottom-0 translate-y-[5%] w-[60%] mx-auto text-center text-[14px] font-carbon max-[426px]:text-[12px] text-[#FE0707]">
           Nhanh tay hoàn thành nhiệm vụ để nhận lấy phần thưởng!
         </p>
       </div>
