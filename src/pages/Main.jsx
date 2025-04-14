@@ -1,12 +1,12 @@
 import Mobile from "./Mobile";
 import PC from "./PC";
 import { Flex, Image } from "antd";
-import PC1 from "../assets/pc-1.webp";
+import PC1 from "../assets/change2.webp";
 import PC2 from "../assets/pc-2.webp";
 import PC3 from "../assets/pc-3.webp";
-import PC4 from "../assets/pc-4.webp";
-import MB1 from "../assets/mb-1.webp";
-import MB2 from "../assets/mb-2.webp";
+import PC4 from "../assets/change1.webp";
+import MB1 from "../assets/change1.webp";
+import MB2 from "../assets/change3.webp";
 import MB3 from "../assets/mb-3.webp";
 import MB4 from "../assets/mb-4.webp";
 
