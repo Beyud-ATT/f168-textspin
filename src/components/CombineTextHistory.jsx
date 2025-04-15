@@ -2,6 +2,7 @@ import TableHeaderBG from "../assets/table-header-bg.png";
 import { Image, Spin } from "antd";
 import useCombineTextHistory from "../hooks/useCombineTextHistory";
 import dayjs from "dayjs";
+import { maskString } from "../utils/helper";
 
 export default function CombineTextHistory({ hideHeader = false }) {
   const { combineTextHistory, isLoading } = useCombineTextHistory();
@@ -37,7 +38,7 @@ export default function CombineTextHistory({ hideHeader = false }) {
                 <p className="uppercase">
                   {dayjs(item.completedAt).format("YYYY-MM-DD")}
                 </p>
-                <p className="uppercase">{item.username}</p>
+                <p className="uppercase">{maskString(item.username)}</p>
                 <p className="uppercase">Ghép thành công</p>
               </div>
             </div>

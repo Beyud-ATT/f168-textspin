@@ -2,6 +2,7 @@ import TableHeaderBG from "../assets/table-header-bg.png";
 import { Image, Spin } from "antd";
 import useHelpHistory from "../hooks/useHelpHistory";
 import dayjs from "dayjs";
+import { maskString } from "../utils/helper";
 
 const word = ["1", "6", "8"];
 
@@ -39,7 +40,7 @@ export default function HelpHistory({ hideHeader = false }) {
                 <p className="uppercase">
                   {dayjs(item.completedAt).format("YYYY-MM-DD")}
                 </p>
-                <p className="uppercase">{item.username}</p>
+                <p className="uppercase">{maskString(item.username)}</p>
                 <p className="uppercase">
                   Gửi tặng {word.includes(item.word) ? "số" : "chữ"} {item.word}
                 </p>

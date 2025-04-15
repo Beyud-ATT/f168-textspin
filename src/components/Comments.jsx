@@ -3,6 +3,7 @@ import useSubmitComments from "../hooks/useSubmitComments";
 import { toast } from "react-toastify";
 import useGetComments from "../hooks/useGetComments";
 import { useAuth } from "../contexts/AuthContext";
+import { maskString } from "../utils/helper";
 
 export default function Comments() {
   const [form] = Form.useForm();
@@ -37,7 +38,7 @@ export default function Comments() {
                 className="flex gap-2 md:text-[16px] text-[14px]"
               >
                 <p className="text-[var(--orange-shade)] uppercase">
-                  {comment.username}:
+                  {maskString(comment.username)}:
                 </p>
                 <p>{comment.message}</p>
               </div>
