@@ -7,7 +7,7 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-const Countdown = ({ time = dayjs("2025-03-31T23:59:59").toISOString() }) => {
+const Countdown = ({ time = dayjs("2025-06-15T23:59:59").toISOString() }) => {
   return (
     <div className=" text-[#7A190D] flex flex-col items-center">
       <div
