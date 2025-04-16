@@ -33,7 +33,7 @@ function App() {
               className="bg-[var(--header-bg)] h-screen"
               gap={50}
             >
-              <Image src={MainImg} alt="main image" />
+              <Image src={MainImg} alt="main image" preview={false} />
               <Typography.Title
                 level={1}
                 className="!text-[var(--color-brand-primary)]"
