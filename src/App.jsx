@@ -15,15 +15,15 @@ function App() {
     <>
       <Routes>
         <Route element={<MainLayout />}>
-          {/* <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main />} />
           <Route path="/account" element={<Account />}>
             <Route path="mission-history" element={<MissionHistory />} />
             <Route path="my-code" element={<MyCode />} />
             <Route path="receive-word" element={<ReceiveWord />} />
             <Route path="send-word" element={<SendWord />} />
-          </Route> */}
+          </Route>
         </Route>
-        <Route
+        {/* <Route
           path="*"
           element={
             <Flex
@@ -42,7 +42,7 @@ function App() {
               </Typography.Title>
             </Flex>
           }
-        />
+        /> */}
       </Routes>
 
       <ToastContainer
