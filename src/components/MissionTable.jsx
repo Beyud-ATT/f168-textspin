@@ -14,20 +14,22 @@ function AcceptButton({
   missionGoal,
   hide,
 }) {
-  const { mutate } = useMissionComplete();
+  const { mutate, isPending } = useMissionComplete();
   return (
     !hide && (
       <CustomButton
         label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
-        active={isAvailableToAccept && !isCompleted}
+        active={isAvailableToAccept && !isCompleted && !isPending}
         className={`${
           isCompleted ? "px-4" : "px-6"
         } !text-[13px] cursor-pointer h-[30px] max-[426px]:h-[25px] my-auto`}
         onClick={() =>
           !isCompleted &&
           isAvailableToAccept &&
+          !isPending &&
           mutate({ missionType, missionGoal })
         }
+        disabled={isPending}
       />
     )
   );
