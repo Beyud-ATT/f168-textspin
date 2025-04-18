@@ -2,8 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getMe } from "../services/accountAPI";
 import { useAuth } from "../contexts/AuthContext";
 
-const timestamp = Date.now();
-
 export default function useGetMe() {
   const { isAuthenticated, logout } = useAuth();
 
@@ -13,7 +11,7 @@ export default function useGetMe() {
     isError,
     error,
   } = useQuery({
-    queryKey: ["getMe", timestamp],
+    queryKey: ["getMe"],
     queryFn: getMe,
     enabled: isAuthenticated,
   });
