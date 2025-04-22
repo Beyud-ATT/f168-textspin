@@ -3,7 +3,7 @@ import { Input, Form, Flex, Image } from "antd";
 import { CompoundModal, useModal } from "./CompoundModal";
 import CustomButton from "./Button";
 import { useAuth } from "../contexts/AuthContext";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { IoLogoAndroid } from "react-icons/io";
 import { BsApple } from "react-icons/bs";
 import RewardImg from "../assets/reward-1.webp";
@@ -141,18 +141,24 @@ const LoginModalForm = () => {
           </Form.Item>
 
           <Flex justify="center" align="center" gap={10}>
-            <CustomButton
-              label="TẢI APP ANDROID"
-              prefix={<IoLogoAndroid className="md:text-3xl text-xl" />}
-              className={`flex items-center whitespace-nowrap px-2 py-1`}
-            />
-            <CustomButton
-              label="TẢI APP IOS"
-              prefix={
-                <BsApple className="md:text-2xl text-lg -translate-y-0.5" />
-              }
-              className={`flex items-center whitespace-nowrap md:px-7 px-5 py-1`}
-            />
+            <Link to={import.meta.env.VITE_ANDROID_DOWNLOAD} target="_blank">
+              <CustomButton
+                label="TẢI APP ANDROID"
+                prefix={<IoLogoAndroid className="md:text-3xl text-xl" />}
+                className={`flex items-center whitespace-nowrap px-2 py-1 cursor-pointer`}
+                type="button"
+              />
+            </Link>
+            <Link to={import.meta.env.VITE_IOS_DOWNLOAD} target="_blank">
+              <CustomButton
+                label="TẢI APP IOS"
+                prefix={
+                  <BsApple className="md:text-2xl text-lg -translate-y-0.5" />
+                }
+                className={`flex items-center whitespace-nowrap md:px-7 px-5 py-1 cursor-pointer`}
+                type="button"
+              />
+            </Link>
           </Flex>
         </Form>
       </div>
