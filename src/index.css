@@ -15,10 +15,16 @@
   src: url("../src/assets/fonts/iCielPanton-Black.otf");
 }
 
+@font-face {
+  font-family: "UTM HelvetIns";
+  src: url("../src/assets/fonts/UTM_HelvetIns.ttf");
+}
+
 @theme {
   --font-carbon: "1FTV-VIP-Carbon", sans-serif;
   --font-bd-street-sign: "BD StreetSign Sans", sans-serif;
   --font-iciel: "iCiel", sans-serif;
+  --font-utm-helvetins: "UTM HelvetIns", sans-serif;
 }
 
 @utility custom-gradient-bg {

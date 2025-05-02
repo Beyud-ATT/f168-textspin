@@ -52,7 +52,7 @@ export default function DrawTextModal() {
       <CompoundModal.Trigger
         render={(openModal) => (
           <Flex
-            className={`relative !w-[157px] !h-[74px] max-[400px]:!h-[40px] cursor-pointer
+            className={`relative !w-[157px] lg:!h-[74px] !h-[60px] max-[400px]:!h-[40px] cursor-pointer
               ${
                 isAuthenticated && availableTurn > 0
                   ? "bg-[url('/src/assets/image_8.png')]"

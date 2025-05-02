@@ -1,3 +1,4 @@
+import { Flex } from "antd";
 import dayjs from "dayjs";
 import { useAnimate } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -9,15 +10,13 @@ const DAY = HOUR * 24;
 
 const Countdown = ({ time = dayjs("2025-06-15T23:59:59").toISOString() }) => {
   return (
-    <div className=" text-[#7A190D] flex flex-col items-center">
+    <div className=" text-[#7A190D] flex items-center justify-center gap-2">
       <div
-        className={`font-bold font-iciel uppercase lg:!text-[15px] md:!text-[12px] !text-[8px]`}
+        className={`font-bold font-iciel uppercase lg:!text-[15px] !text-[8px]`}
       >
         THỜI GIAN KẾT THÚC CÒN
       </div>
-      <div className="flex items-center md:text-xl text-[10px] font-bd-street-sign -translate-y-1">
-        <CountdownItem unit="Day" timeToCount={time} />
-        <span className="mx-1">-</span>
+      <div className="flex items-center font-bd-street-sign gap-2">
         <CountdownItem unit="Hour" text=":" timeToCount={time} />
         <CountdownItem unit="Minute" text=":" timeToCount={time} />
         <CountdownItem unit="Second" timeToCount={time} />
@@ -30,14 +29,28 @@ const CountdownItem = ({ unit, text, timeToCount }) => {
   const { ref, time } = useTimer({ unit, timeToCount });
 
   return (
-    <div className="w-full">
-      <div className="flex items-center w-full overflow-hidden">
-        <span className="" ref={ref}>
-          {time}
-        </span>
-        {text && <span className="">{text}</span>}
+    <>
+      <div className="lg:w-[63px] w-[32px] max-[376px]:w-[20px] h-fit lg:p-3 p-1 max-[376px]:p-0.5 bg-gradient-to-b from-[#D7603E] to-[#B7212C] rounded-[10px]">
+        <Flex
+          vertical
+          justify="center"
+          align="center"
+          className="w-full h-full"
+        >
+          <span
+            ref={ref}
+            className="text-[#FFF3CD] font-bold font-iciel lg:!text-3xl !text-[13px] max-[376px]:!text-[10px] translate-y-0.5"
+          >
+            {time}
+          </span>
+        </Flex>
       </div>
-    </div>
+      {text && (
+        <span className="lg:!text-3xl !text-[12px] max-[376px]:!text-[10px]">
+          {text}
+        </span>
+      )}
+    </>
   );
 };
 

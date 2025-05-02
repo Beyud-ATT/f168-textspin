@@ -1,4 +1,6 @@
 import useGetMe from "../hooks/useGetMe";
+import ActiveBG from "../assets/active-bg.png";
+import InactiveBG from "../assets/inactive-bg.png";
 
 const codes = ["F", "1", "6", "8"];
 
@@ -18,7 +20,7 @@ export default function CharacterDrawed() {
   }
 
   return (
-    <div className="w-full flex justify-center items-center md:gap-5 gap-2">
+    <div className="w-full flex justify-center items-center md:gap-5 gap-4 max-[426px]:translate-x-2">
       {characters.map((character, index) => {
         const isAvailable = character.count > 0;
 
@@ -27,19 +29,28 @@ export default function CharacterDrawed() {
             key={index}
             wordText={index}
             className={`relative flex justify-center items-center
-                  md:w-[116px] md:h-[109px] w-[65px] h-[61px]
+                  lg:w-[131px] lg:h-[133px] md:w-[62px] md:h-[63px] w-[45px] h-[46px]
                   rounded-xl border-[1.8px] border-[#FFF8E3]`}
             style={{
-              background: isAvailable
-                ? "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)"
-                : "linear-gradient(180deg, #FFE0B1 0%, #ECBF86 100%)",
+              backgroundImage: isAvailable
+                ? `url(${ActiveBG})`
+                : `url(${InactiveBG})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
-            <span className="text-white font-bold md:text-7xl text-5xl md:-translate-y-1.5 -translate-y-0.5 mx-auto my-auto">
+            <span
+              className={`font-bold font-utm-helvetins lg:text-8xl md:text-5xl text-3xl lg:-translate-y-2 -translate-y-0.5 
+                mx-auto my-auto bg-gradient-to-b ${
+                  isAvailable
+                    ? "from-[#FFF9EA] to-[#FFE098]"
+                    : "from-[#B1B1B1] to-[#333]"
+                } bg-clip-text text-transparent`}
+            >
               {character.wordText}
             </span>
             {isAvailable && (
-              <span className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 text-white font-bold text-sm rounded-full bg-[#7A190D] py-1 px-2.5">
+              <span className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 text-white font-bold lg:text-sm text-[8px] rounded-full bg-[#7A190D] lg:py-1 lg:px-2.5 py-0.5 px-1">
                 {character.count}
               </span>
             )}
