@@ -20,7 +20,7 @@ export default function CharacterDrawed() {
   }
 
   return (
-    <div className="w-full flex justify-center items-center md:gap-5 gap-4 max-[426px]:translate-x-2">
+    <div className="w-full flex justify-center items-center md:gap-5 gap-3 max-[376px]:gap-1 max-[426px]:translate-x-2">
       {characters.map((character, index) => {
         const isAvailable = character.count > 0;
 
