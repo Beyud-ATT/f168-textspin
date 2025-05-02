@@ -29,7 +29,7 @@ export default function CharacterDrawed() {
             key={index}
             wordText={index}
             className={`relative flex justify-center items-center
-                  lg:w-[131px] lg:h-[133px] md:w-[62px] md:h-[63px] w-[45px] h-[46px]
+                  lg:w-[131px] lg:h-[133px] md:w-[82px] md:h-[83px] w-[45px] h-[46px]
                   rounded-xl border-[1.8px] border-[#FFF8E3]`}
             style={{
               backgroundImage: isAvailable
