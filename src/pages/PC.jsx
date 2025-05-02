@@ -80,12 +80,16 @@ export default function PC() {
           <p className="text-[#F6EEBA] text-4xl font-bd-street-sign">
             {Intl.NumberFormat().format(totalJoin?.data)}
           </p>
-          <div className="flex items-center justify-center gap-2">
+          <Flex
+            justify="center"
+            align="center"
+            className="gap-1 -translate-y-0.5"
+          >
             <FaUsers className="text-[#F6EEBA] text-2xl" />
             <span className="text-[#F6EEBA] font-extralight text-lg uppercase">
               người tham gia
             </span>
-          </div>
+          </Flex>
         </Flex>
       </Flex>
 
