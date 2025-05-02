@@ -43,7 +43,7 @@ export default function PC() {
         <Flex justify="center" align="center">
           <div className="relative">
             <Image
-              src={showLight ? NoneLightImg : LightImg}
+              src={showLight ? LightImg : NoneLightImg}
               preview={false}
               alt="background-none-light"
               className={`w-full transition-opacity duration-300 ease-in-out`}
