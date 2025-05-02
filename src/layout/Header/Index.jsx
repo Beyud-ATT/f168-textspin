@@ -14,9 +14,12 @@ export default function MainHeader({ Layout, ...rest }) {
   const navigate = useNavigate();
 
   return (
-    <Header {...rest} className="!h-[86px] !bg-[var(--header-bg)]">
+    <Header
+      {...rest}
+      className="md:!h-[86px] !h-fit !bg-[var(--header-bg)] !px-4"
+    >
       <div className="max-w-screen-2xl w-full mx-auto my-2">
-        <Flex className="w-full flex items-center justify-between">
+        <Flex justify="space-between" align="center" className="w-full">
           <Flex className="pt-3 md:gap-2.5 gap-1" justify="center" align="end">
             <Image src={HomeIcon} preview={false} className="md:hidden block" />
             <Image
@@ -56,7 +59,7 @@ export default function MainHeader({ Layout, ...rest }) {
                 </Flex>
               </Flex>
             ) : (
-              <Flex className="md:flex-row flex-col lg:gap-5 gap-2">
+              <Flex className="lg:gap-5 gap-2">
                 <SignUpBtn />
                 <LoginModal />
               </Flex>
