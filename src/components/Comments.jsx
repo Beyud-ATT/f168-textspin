@@ -32,17 +32,22 @@ export default function Comments() {
           </div>
         ) : (
           comments?.data?.map((comment, index) => {
-            return (
-              <div
-                key={index}
-                className="flex gap-2 md:text-[16px] text-[14px]"
-              >
-                <p className="text-[var(--orange-shade)] uppercase">
-                  {maskString(comment.username)}:
-                </p>
-                <p>{comment.message}</p>
-              </div>
-            );
+            if (index > 14) {
+              return null;
+            }
+            if (index <= 14) {
+              return (
+                <div
+                  key={index}
+                  className="flex gap-2 md:text-[16px] text-[14px]"
+                >
+                  <p className="text-[var(--orange-shade)] uppercase">
+                    {maskString(comment.username)}:
+                  </p>
+                  <p>{comment.message}</p>
+                </div>
+              );
+            }
           })
         )}
       </div>

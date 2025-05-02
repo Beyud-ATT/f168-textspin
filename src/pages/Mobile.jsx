@@ -71,7 +71,7 @@ export default function Mobile() {
         </Flex>
 
         <Flex justify="center" align="center" className="w-full md:gap-3 gap-2">
-          <p className="text-[#F6EEBA] lg:text-3xl md:text-2xl text-[15px] font-bd-street-sign">
+          <p className="text-[#892700] lg:text-3xl md:text-2xl text-[15px] font-bd-street-sign">
             {Intl.NumberFormat().format(totalJoin?.data)}
           </p>
           <Flex
@@ -79,8 +79,8 @@ export default function Mobile() {
             align="center"
             className="gap-1 -translate-y-0.5"
           >
-            <FaUsers className="text-[#F6EEBA] lg:text-3xl md:text-2xl text-[15px]" />
-            <span className="text-[#F6EEBA] font-extralight lg:text-lg md:text-sm text-[11px] uppercase">
+            <FaUsers className="text-[#892700] lg:text-3xl md:text-2xl text-[15px]" />
+            <span className="text-[#892700] font-semibold lg:text-lg md:text-sm text-[11px] uppercase">
               người tham gia
             </span>
           </Flex>
