@@ -55,7 +55,7 @@ export default function Mobile() {
               </DeviceProvider>
             </div>
 
-            <div className="absolute top-[45%] w-full flex justify-center items-center">
+            <div className="absolute lg:top-[42%] top-[45%] w-full flex justify-center items-center">
               <Countdown />
             </div>
 
