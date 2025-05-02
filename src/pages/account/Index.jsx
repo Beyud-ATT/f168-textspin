@@ -15,11 +15,13 @@ export default function Account() {
   }, [pathName, arr, navigate]);
 
   return (
-    <Flex className="lg:flex-row flex-col lg:gap-4">
-      <LeftNav />
-      <div className="w-full max-h-[80dvh] overflow-y-auto">
-        <Outlet />
-      </div>
-    </Flex>
+    <div className="max-w-screen-xl w-full mx-auto">
+      <Flex className="w-full lg:flex-row flex-col lg:gap-4">
+        <LeftNav />
+        <div className="w-full max-h-[80dvh] overflow-y-auto">
+          <Outlet />
+        </div>
+      </Flex>
+    </div>
   );
 }
