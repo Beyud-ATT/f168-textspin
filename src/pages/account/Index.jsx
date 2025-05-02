@@ -15,7 +15,7 @@ export default function Account() {
   }, [pathName, arr, navigate]);
 
   return (
-    <div className="max-w-screen-xl w-full mx-auto">
+    <div className="max-w-screen-xl w-full mx-auto pt-4">
       <Flex className="w-full lg:flex-row flex-col lg:gap-4">
         <LeftNav />
         <div className="w-full max-h-[80dvh] overflow-y-auto">
