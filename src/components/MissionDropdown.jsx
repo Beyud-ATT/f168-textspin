@@ -46,7 +46,7 @@ export default function MissionDropdown() {
   }, []);
 
   return (
-    <div className="relative lg:w-[440px] w-[372px]">
+    <div className="fixed md:top-[27%] top-[15%] 2xl:right-[38%] xl:right-[30%] lg:right-[25%] md:right-[30%] right-[5%] md:translate-x-1/2 lg:w-[440px] w-[372px] z-50">
       <MissionDropDownTrigger onClick={handleDropdownToggle} />
       {isDropdownOpen && (
         <div className="z-50 absolute top-full right-0">

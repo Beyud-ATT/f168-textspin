@@ -49,12 +49,6 @@ export default function PC() {
               className={`w-full transition-opacity duration-300 ease-in-out`}
             />
 
-            <div className="absolute top-[28%] right-[6%]">
-              <DeviceProvider>
-                <MissionDropdown />
-              </DeviceProvider>
-            </div>
-
             <div className="absolute top-[42%] w-full flex justify-center items-center">
               <Countdown />
             </div>
@@ -92,6 +86,10 @@ export default function PC() {
           </Flex>
         </Flex>
       </Flex>
+
+      <DeviceProvider>
+        <MissionDropdown />
+      </DeviceProvider>
 
       <div className="max-w-screen-2xl w-full mx-auto">
         <Flex justify="space-around" align="center">

@@ -49,11 +49,9 @@ export default function Mobile() {
               className={`w-full transition-opacity duration-300 ease-in-out`}
             />
 
-            <div className="absolute lg:top-[28%] lg:right-[6%] md:top-[30%] md:right-[10%] top-[28%] right-[6%]">
-              <DeviceProvider>
-                <MissionDropdown />
-              </DeviceProvider>
-            </div>
+            <DeviceProvider>
+              <MissionDropdown />
+            </DeviceProvider>
 
             <div className="absolute lg:top-[42%] top-[45%] w-full flex justify-center items-center">
               <Countdown />
