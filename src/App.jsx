@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Link } from "react-router";
 import MainLayout from "./layout/Index";
 import Main from "./pages/Main";
 import { ToastContainer } from "react-toastify";
@@ -34,12 +34,15 @@ function App() {
               gap={50}
             >
               <Image src={MainImg} alt="main image" preview={false} />
-              <Typography.Title
-                level={1}
-                className="!text-[var(--color-brand-primary)]"
-              >
-                Hệ thống đang bảo trì - vui lòng đợi đôi chút !!!
-              </Typography.Title>
+              <Link to="https://f168-live.pages.dev/">
+                <Typography.Title
+                  level={1}
+                  className="!text-[var(--color-brand-primary)]"
+                >
+                  F168 Thông Báo Sự Kiện Đã Kết Thúc - Đón Xem Phiên Live 19H
+                  Tối Nay
+                </Typography.Title>
+              </Link>
             </Flex>
           }
         />
