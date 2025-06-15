@@ -39,7 +39,7 @@ function App() {
                   level={1}
                   className="!text-[var(--color-brand-primary)]"
                 >
-                  F168 Thông Báo Sự Kiện Đã Kết Thúc - Đón Xem Phiên Live 19H
+                  F168 Thông Báo Sự Kiện Đã Kết Thúc - Đón Xem Phiên Live 19H30
                   Tối Nay
                 </Typography.Title>
               </Link>
