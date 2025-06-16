@@ -34,13 +34,13 @@ function App() {
               gap={50}
             >
               <Image src={MainImg} alt="main image" preview={false} />
-              <Link to="https://f168-live.pages.dev/">
+              <Link to="https://www.facebook.com/groups/f168group">
                 <Typography.Title
                   level={1}
                   className="!text-[var(--color-brand-primary)]"
                 >
-                  F168 Thông Báo Sự Kiện Đã Kết Thúc - Đón Xem Phiên Live 19H30
-                  Tối Nay
+                  Thông Báo Sự Kiện Đã Kết Thúc - Theo Dõi F168 Chờ Đón Chương
+                  Trình Quay Trở Lại
                 </Typography.Title>
               </Link>
             </Flex>
