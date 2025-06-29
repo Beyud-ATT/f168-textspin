@@ -12,10 +12,11 @@ import MobileHistoryTabs from "../components/MobileHistoryTabs";
 import SendWordModal from "../components/SendWordModal";
 import useTotalJoin from "../hooks/useTotalJoin";
 import CommentsMobile from "../components/CommentsMobileModal";
-import LightImg from "../assets/light.webp";
-import NoneLightImg from "../assets/none-light.webp";
-import MainBgMb from "../assets/main-bg-mb.webp";
+import LightImg from "../assets/light.png";
+import NoneLightImg from "../assets/none-light.png";
+import MainBgMb from "../assets/main-bg-mb.png";
 import DeviceProvider from "../contexts/ResponsiveContext";
+import MissionTable from "../components/MissionTable";
 
 export default function Mobile() {
   const { totalJoin } = useTotalJoin();
@@ -49,19 +50,19 @@ export default function Mobile() {
               className={`w-full transition-opacity duration-300 ease-in-out`}
             />
 
-            <DeviceProvider>
+            {/* <DeviceProvider>
               <MissionDropdown />
-            </DeviceProvider>
+            </DeviceProvider> */}
 
-            <div className="absolute lg:top-[42%] top-[45%] w-full flex justify-center items-center">
+            <div className="absolute lg:top-[40%] md:top-[45%] top-[42%] w-full flex justify-center items-center">
               <Countdown />
             </div>
 
-            <div className="absolute md:top-[55%] top-[58%] max-[376px]:top-[55%] w-full md:-translate-x-0 -translate-x-2">
+            <div className="absolute lg:top-[47%] md:top-[54%] top-[50%] w-full md:-translate-x-0 -translate-x-2">
               <CharacterDrawed />
             </div>
 
-            <Flex className="absolute lg:bottom-[12%] bottom-[14%] w-full flex justify-center items-center md:gap-5 gap-2">
+            <Flex className="absolute bottom-[15%] w-full flex justify-center items-center md:gap-5 gap-2">
               <GetHelpModal />
               <SendWordHistory />
             </Flex>
@@ -89,6 +90,12 @@ export default function Mobile() {
           <CombineTextModal />
           <SendWordModal />
         </Flex>
+      </Flex>
+
+      <Flex justify="center" align="center">
+        <div className="custom-gradient-bg h-full w-[95%] mx-auto">
+          <MissionTable />
+        </div>
       </Flex>
 
       <Flex justify="center" align="center">

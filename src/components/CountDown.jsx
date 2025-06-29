@@ -16,7 +16,7 @@ const Countdown = ({ time = dayjs("2025-06-15T23:59:59").toISOString() }) => {
       >
         THỜI GIAN KẾT THÚC CÒN
       </div>
-      <div className="flex items-center font-bd-street-sign gap-2">
+      <div className="flex items-center font-bd-street-sign md:gap-2 gap-1">
         <CountdownItem unit="Hour" text=":" timeToCount={time} />
         <CountdownItem unit="Minute" text=":" timeToCount={time} />
         <CountdownItem unit="Second" timeToCount={time} />
@@ -39,7 +39,7 @@ const CountdownItem = ({ unit, text, timeToCount }) => {
         >
           <span
             ref={ref}
-            className="text-[#FFF3CD] font-bold font-iciel lg:!text-3xl !text-[13px] max-[376px]:!text-[10px] translate-y-0.5"
+            className="text-[#FFF3CD] font-bold font-iciel lg:!text-3xl !text-[10px] max-[376px]:!text-[8px] translate-y-0.5"
           >
             {time}
           </span>

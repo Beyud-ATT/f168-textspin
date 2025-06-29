@@ -7,6 +7,7 @@ import PC3 from "../assets/pc3.png";
 import MB1 from "../assets/mb1.png";
 import MB2 from "../assets/mb2.png";
 import MB3 from "../assets/mb3.png";
+import TopTable from "../components/TopTable";
 
 export default function Main() {
   return (
@@ -18,27 +19,45 @@ export default function Main() {
         <Mobile />
       </div>
 
+      <div className="max-w-screen-2xl mx-auto lg:!px-6 !px-4">
+        <TopTable />
+      </div>
+
       {/* PC / Tablet */}
       <Flex
         vertical
+        justify="center"
+        align="center"
         className="md:flex md:visible md:opacity-100 md:h-auto md:w-auto h-0 w-0 hidden invisible opacity-0 lg:!px-6 !px-4 xl:gap-20 gap-5"
       >
-        <Flex justify="center" align="center" gap={40}>
-          <Image src={PC1} preview={false} alt="event-detail" loading="lazy" />
-        </Flex>
+        <div className="max-w-screen-2xl mx-auto">
+          <Flex justify="center" align="center" gap={40}>
+            <Image
+              src={PC1}
+              preview={false}
+              alt="event-detail"
+              loading="lazy"
+            />
+          </Flex>
 
-        <Flex justify="center" align="center" gap={40}>
-          <Image src={PC2} preview={false} alt="event-detail" loading="lazy" />
-        </Flex>
+          <Flex justify="center" align="center" gap={40}>
+            <Image
+              src={PC2}
+              preview={false}
+              alt="event-detail"
+              loading="lazy"
+            />
+          </Flex>
 
-        <Flex justify="center" align="center">
-          <Image
-            src={PC3}
-            preview={false}
-            alt="gethelp-detail"
-            loading="lazy"
-          />
-        </Flex>
+          <Flex justify="center" align="center">
+            <Image
+              src={PC3}
+              preview={false}
+              alt="gethelp-detail"
+              loading="lazy"
+            />
+          </Flex>
+        </div>
       </Flex>
 
       {/* Mobile */}

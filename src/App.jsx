@@ -7,14 +7,14 @@ import MissionHistory from "./pages/account/mission-history/Index";
 import MyCode from "./pages/account/my-code/Index";
 import ReceiveWord from "./pages/account/receive-word/Index";
 import SendWord from "./pages/account/send-word/Index";
-import { Flex, Image, Typography } from "antd";
-import MainImg from "./assets/main-img-1.png";
+// import { Flex, Image, Typography } from "antd";
+// import MainImg from "./assets/main-img-1.png";
 
 function App() {
   return (
     <>
       <Routes>
-        {/* <Route element={<MainLayout />}>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Main />} />
           <Route path="/account" element={<Account />}>
             <Route path="mission-history" element={<MissionHistory />} />
@@ -22,8 +22,8 @@ function App() {
             <Route path="receive-word" element={<ReceiveWord />} />
             <Route path="send-word" element={<SendWord />} />
           </Route>
-        </Route> */}
-        <Route
+        </Route>
+        {/* <Route
           path="*"
           element={
             <Flex
@@ -45,7 +45,7 @@ function App() {
               </Link>
             </Flex>
           }
-        />
+        /> */}
       </Routes>
 
       <ToastContainer

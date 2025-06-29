@@ -1,7 +1,7 @@
 import { Flex, Image } from "antd";
 import { useState, useEffect } from "react";
-import LightImg from "../assets/light.webp";
-import NoneLightImg from "../assets/none-light.webp";
+import LightImg from "../assets/light.png";
+import NoneLightImg from "../assets/none-light.png";
 import Countdown from "../components/CountDown";
 import { FaUsers } from "react-icons/fa";
 import GetHelpModal from "../components/GetHelpModal";
@@ -11,11 +11,12 @@ import CombineTextModal from "../components/CombineTextModal";
 import CharacterDrawed from "../components/CharacterDrawed";
 import SendWordModal from "../components/SendWordModal";
 import useTotalJoin from "../hooks/useTotalJoin";
-import MainBg from "../assets/main-bg.webp";
+import MainBg from "../assets/main-bg.jpg";
 import MobileHistoryTabs from "../components/MobileHistoryTabs";
 import CommentsMobile from "../components/CommentsMobileModal";
-import MissionDropdown from "../components/MissionDropdown";
-import DeviceProvider from "../contexts/ResponsiveContext";
+// import MissionDropdown from "../components/MissionDropdown";
+// import DeviceProvider from "../contexts/ResponsiveContext";
+import MissionTable from "../components/MissionTable";
 
 export default function PC() {
   const { totalJoin } = useTotalJoin();
@@ -49,11 +50,11 @@ export default function PC() {
               className={`w-full transition-opacity duration-300 ease-in-out`}
             />
 
-            <div className="absolute top-[42%] w-full flex justify-center items-center">
+            <div className="absolute top-[40%] w-full flex justify-center items-center">
               <Countdown />
             </div>
 
-            <div className="absolute top-[54%] w-full -translate-x-2">
+            <div className="absolute top-[47%] w-full -translate-x-2">
               <CharacterDrawed />
             </div>
 
@@ -87,19 +88,25 @@ export default function PC() {
         </Flex>
       </Flex>
 
-      <DeviceProvider>
+      {/* <DeviceProvider>
         <MissionDropdown />
-      </DeviceProvider>
+      </DeviceProvider> */}
 
       <div className="max-w-screen-2xl w-full mx-auto">
         <Flex justify="space-around" align="center">
-          <div className="w-[50%] h-[505px]">
+          <div className="w-[33%] h-[505px]">
             <div className="w-full h-full">
               <MobileHistoryTabs />
             </div>
           </div>
 
-          <div className="w-[50%] h-[505px]">
+          <div className="w-[33%] h-[505px]">
+            <div className="w-full h-full custom-gradient-bg rounded-xl">
+              <MissionTable />
+            </div>
+          </div>
+
+          <div className="w-[33%] h-[505px]">
             <div className="w-full h-full">
               <CommentsMobile />
             </div>

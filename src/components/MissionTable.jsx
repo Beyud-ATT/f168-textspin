@@ -50,12 +50,11 @@ export default function MissionTable() {
   const missions = missionsMe?.length > 0 ? missionsMe : missionsData?.data;
 
   return (
-    <div className="flex flex-col gap-3 justify-center items-center bg-gradient-to-b from-[#FFE0B1] to-[#ECBF86] p-3 rounded-xl">
+    <div className="flex flex-col md:gap-8 gap-5 justify-start items-center bg-gradient-to-b from-[#FFE0B1] to-[#ECBF86] pb-5 rounded-xl w-full h-full">
       <p
-        className="md:text-4xl min-[425px]:text-3xl text-xl font-carbon"
+        className="md:text-[53px] min-[425px]:text-3xl text-xl font-carbon md:mt-5 mt-2"
         style={{
-          background:
-            "linear-gradient(180deg, var(--orange-shade) 0%, #D63200 125.86%)",
+          background: "linear-gradient(180deg, #D7603E 0%, #B7212C 100%)",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -64,7 +63,10 @@ export default function MissionTable() {
         Nhiệm vụ
       </p>
 
-      <Flex vertical className="flex justify-center items-center gap-1.5">
+      <Flex
+        vertical
+        className="flex justify-center items-center md:gap-5 gap-3"
+      >
         {missions?.map((mission, index) => {
           const {
             missionContentTemplete,
@@ -108,7 +110,7 @@ export default function MissionTable() {
             >
               <div
                 key={Math.random()}
-                className="md:h-[40px] h-[25px] w-full md:px-3 px-2 flex justify-center items-center"
+                className="md:h-[47px] h-[39px] w-full md:px-3 px-2 flex justify-center items-center"
                 style={{
                   borderRadius: "8.487px",
                   background: "#FFECDC",
@@ -135,9 +137,9 @@ export default function MissionTable() {
         })}
       </Flex>
 
-      <p className="text-center text-[14px] font-carbon max-[426px]:text-[12px] text-[#FE0707] ">
+      {/* <p className="text-center text-[14px] font-carbon max-[426px]:text-[12px] text-[#FE0707] ">
         Nhanh tay hoàn thành nhiệm vụ để nhận lấy phần thưởng!
-      </p>
+      </p> */}
     </div>
   );
 }

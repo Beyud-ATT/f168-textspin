@@ -74,7 +74,7 @@ export default function SendWordHistory() {
           <CustomButton
             label="Lịch sử tặng chữ"
             onClick={openModal}
-            className="md:px-3 px-2 py-1 lg:text-[23px] text-[11px]"
+            className="md:px-3 md:py-1 px-2 py-0.5 lg:text-[23px] md:text-[11px] text-[8px]"
           />
         )}
       />

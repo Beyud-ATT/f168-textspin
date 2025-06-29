@@ -101,7 +101,7 @@ export default function GetHelpModal() {
           <CustomButton
             label="nhờ bạn bè"
             onClick={openModal}
-            className="md:px-8 md:py-1 px-4 py-1 lg:text-[23px] text-[11px]"
+            className="lg:px-8 lg:py-1 md:px-6 md:py-1 px-3 py-0.5 lg:text-[23px] md:text-[11px] text-[8px]"
           />
         )}
       />
