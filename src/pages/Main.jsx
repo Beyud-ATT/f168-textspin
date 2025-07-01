@@ -19,18 +19,18 @@ export default function Main() {
         <Mobile />
       </div>
 
-      <div className="max-w-screen-2xl mx-auto lg:!px-6 !px-4">
+      <div className="max-w-screen-2xl mx-auto lg:!px-6 md:!px-4 !px-2">
         <TopTable />
       </div>
 
       {/* PC / Tablet */}
-      <Flex
-        vertical
-        justify="center"
-        align="center"
-        className="md:flex md:visible md:opacity-100 md:h-auto md:w-auto h-0 w-0 hidden invisible opacity-0 lg:!px-6 !px-4 xl:gap-20 gap-5"
-      >
-        <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-2xl mx-auto">
+        <Flex
+          vertical
+          justify="center"
+          align="center"
+          className="md:flex md:visible md:opacity-100 md:h-auto md:w-auto h-0 w-0 hidden invisible opacity-0 lg:!px-6 !px-4 xl:gap-20 gap-5"
+        >
           <Flex justify="center" align="center" gap={40}>
             <Image
               src={PC1}
@@ -57,8 +57,8 @@ export default function Main() {
               loading="lazy"
             />
           </Flex>
-        </div>
-      </Flex>
+        </Flex>
+      </div>
 
       {/* Mobile */}
       <Flex

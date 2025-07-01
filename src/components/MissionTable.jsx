@@ -69,7 +69,7 @@ export default function MissionTable() {
       >
         {missions?.map((mission, index) => {
           const {
-            missionContentTemplete,
+            missionContentTemplate,
             missionGoal,
             isCompleted,
             missionType,
@@ -90,9 +90,9 @@ export default function MissionTable() {
               ? "điểm"
               : "";
 
-          const missionTitle = missionContentTemplete
-            .split(" ")
-            .map((element) => {
+          const missionTitle = missionContentTemplate
+            ?.split(" ")
+            ?.map((element) => {
               if (element === "%S") {
                 return (
                   <span className="text-[#FE0707] font-bold">

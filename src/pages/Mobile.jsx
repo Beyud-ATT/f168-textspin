@@ -58,7 +58,7 @@ export default function Mobile() {
               <Countdown />
             </div>
 
-            <div className="absolute lg:top-[47%] md:top-[54%] top-[50%] w-full md:-translate-x-0 -translate-x-2">
+            <div className="absolute lg:top-[47%] md:top-[54%] top-[52%] max-[321px]:top-[50%] w-full md:-translate-x-0 -translate-x-2">
               <CharacterDrawed />
             </div>
 

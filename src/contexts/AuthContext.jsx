@@ -40,9 +40,9 @@ function AuthProvider({ children }) {
     try {
       const res = await loginAPI(data);
       if (res.status === 200) {
-        const { token, username } = res.data;
+        const { token, displayName } = res.data;
         localStorage.setItem("token", token);
-        localStorage.setItem("username", username);
+        localStorage.setItem("username", displayName);
         setIsAuthenticated(true);
         toast.success("Đăng nhập thành công !!!");
       }
@@ -55,7 +55,7 @@ function AuthProvider({ children }) {
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
     localStorage.removeItem("username");
     setIsAuthenticated(false);
     navigate("/");

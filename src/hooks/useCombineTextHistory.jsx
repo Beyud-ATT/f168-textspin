@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { listWordCompleted } from "../services/historiesAPI";
+import { listWordCompleted } from "../services/commonsAPI";
 
 export default function useCombineTextHistory() {
   const {

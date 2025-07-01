@@ -1,40 +1,10 @@
 import axoisBase from "./axiosBase";
 
-const endpoint = "/histories";
-
-async function listWordCompleted() {
-  try {
-    const res = await axoisBase.get(`${endpoint}/list-word-completed`);
-    return res;
-  } catch (error) {
-    console.error("Error in listWordCompleted:", error);
-    throw error;
-  }
-}
-
-async function listWordSend() {
-  try {
-    const res = await axoisBase.get(`${endpoint}/list-word-send`);
-    return res;
-  } catch (error) {
-    console.error("Error in listWordSend:", error);
-    throw error;
-  }
-}
-
-async function totalJoin() {
-  try {
-    const res = await axoisBase.get(`${endpoint}/total-join`);
-    return res;
-  } catch (error) {
-    console.error("Error in totalJoin:", error);
-    throw error;
-  }
-}
+const endpoint = "/account/histories";
 
 async function myCode() {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-code/me`);
+    const res = await axoisBase.get(`${endpoint}/codes`);
     return res;
   } catch (error) {
     console.error("Error in myCode:", error);
@@ -44,7 +14,7 @@ async function myCode() {
 
 async function receiveWord(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-word/me`, {
+    const res = await axoisBase.get(`${endpoint}/words`, {
       params,
     });
     return res;
@@ -56,7 +26,7 @@ async function receiveWord(params) {
 
 async function missionHistory(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-mission/me`, {
+    const res = await axoisBase.get(`${endpoint}/missions`, {
       params,
     });
     return res;
@@ -68,7 +38,7 @@ async function missionHistory(params) {
 
 async function sendWord(params) {
   try {
-    const res = await axoisBase.get(`${endpoint}/list-word-send/me`, {
+    const res = await axoisBase.get(`${endpoint}/word-sends`, {
       params,
     });
     return res;
@@ -78,12 +48,4 @@ async function sendWord(params) {
   }
 }
 
-export {
-  listWordCompleted,
-  listWordSend,
-  totalJoin,
-  myCode,
-  receiveWord,
-  missionHistory,
-  sendWord,
-};
+export { myCode, receiveWord, missionHistory, sendWord };

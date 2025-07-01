@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getComments } from "../services/commentAPI";
+import { getComments } from "../services/commonsAPI";
 
 export default function useGetComments() {
   const { data, isLoading, isError, error } = useQuery({

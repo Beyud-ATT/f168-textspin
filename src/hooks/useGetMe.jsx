@@ -13,7 +13,7 @@ export default function useGetMe() {
   } = useQuery({
     queryKey: ["getMe"],
     queryFn: getMe,
-    enabled: isAuthenticated,
+    enabled: isAuthenticated && localStorage.getItem("token") !== null,
   });
 
   if (isError) {

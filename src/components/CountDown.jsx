@@ -8,11 +8,11 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-const Countdown = ({ time = dayjs("2025-06-15T23:59:59").toISOString() }) => {
+const Countdown = ({ time = dayjs("2026-06-15T23:59:59").toISOString() }) => {
   return (
     <div className=" text-[#7A190D] flex items-center justify-center gap-2">
       <div
-        className={`font-bold font-iciel uppercase lg:!text-[15px] !text-[8px]`}
+        className={`font-bold font-iciel uppercase lg:!text-[15px] md:!text-[14px] !text-[8px]`}
       >
         THỜI GIAN KẾT THÚC CÒN
       </div>
@@ -39,7 +39,7 @@ const CountdownItem = ({ unit, text, timeToCount }) => {
         >
           <span
             ref={ref}
-            className="text-[#FFF3CD] font-bold font-iciel lg:!text-3xl !text-[10px] max-[376px]:!text-[8px] translate-y-0.5"
+            className="text-[#FFF3CD] font-bold font-iciel lg:!text-3xl md:!text-[14px] !text-[10px] max-[376px]:!text-[8px] translate-y-0.5"
           >
             {time}
           </span>

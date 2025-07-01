@@ -3,10 +3,13 @@ import First from "../assets/first.png";
 import Second from "../assets/second.png";
 import Third from "../assets/third.png";
 import { Flex, Image, Spin } from "antd";
+import useTopUsers from "../hooks/useTopUsers";
 
 export default function TopTable() {
+  const { topUsers, isLoading } = useTopUsers();
+
   return (
-    <div className="relative bg-gradient-to-r from-[#fd3136] to-[#fee59e] rounded-xl p-1 mb-5 mt-8 h-[685px]">
+    <div className="relative bg-gradient-to-r from-[#fd3136] to-[#fee59e] rounded-xl p-1 my-16 h-[685px]">
       <div className="bg-[#FFF9EC] rounded-xl h-[101%]">
         <div className="relative xl:w-[277px] xl:h-[77px] w-[170px] h-[35px]">
           <Image
@@ -41,12 +44,12 @@ export default function TopTable() {
         </Flex>
 
         <div className="w-[70%] h-[75%] mx-auto overflow-y-auto mt-5">
-          {false ? (
+          {isLoading ? (
             <div className="flex w-full h-full justify-center items-center">
               <Spin size="large" />
             </div>
           ) : (
-            Array.from({ length: 100 }).map((_, index) => (
+            topUsers?.data?.map((_, index) => (
               <div
                 key={index}
                 className={`flex justify-center items-center h-[45px] font-bold ${

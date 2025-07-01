@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { listWordSend } from "../services/historiesAPI";
+import { listWordSend } from "../services/commonsAPI";
 
 export default function useHelpHistory() {
   const {
