@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Flex, Image } from "antd";
 import Countdown from "../components/CountDown";
-import { FaUsers } from "react-icons/fa";
 import GetHelpModal from "../components/GetHelpModal";
 import SendWordHistory from "../components/SendWordHistory";
 import DrawTextModal from "../components/DrawTextModal";
 import CombineTextModal from "../components/CombineTextModal";
 import CharacterDrawed from "../components/CharacterDrawed";
-import MissionDropdown from "../components/MissionDropdown";
+// import MissionDropdown from "../components/MissionDropdown";
 import MobileHistoryTabs from "../components/MobileHistoryTabs";
 import SendWordModal from "../components/SendWordModal";
 import useTotalJoin from "../hooks/useTotalJoin";
@@ -15,8 +14,9 @@ import CommentsMobile from "../components/CommentsMobileModal";
 import LightImg from "../assets/light.png";
 import NoneLightImg from "../assets/none-light.png";
 import MainBgMb from "../assets/main-bg-mb.png";
-import DeviceProvider from "../contexts/ResponsiveContext";
+// import DeviceProvider from "../contexts/ResponsiveContext";
 import MissionTable from "../components/MissionTable";
+import TotalDrawImg from "../assets/total-draw.png";
 
 export default function Mobile() {
   const { totalJoin } = useTotalJoin();
@@ -70,7 +70,7 @@ export default function Mobile() {
         </Flex>
 
         <Flex justify="center" align="center" className="w-full md:gap-3 gap-2">
-          <p className="text-[#892700] lg:text-3xl md:text-2xl text-[15px] font-bd-street-sign">
+          <p className="text-[#F6EEBA] lg:text-3xl md:text-2xl text-[15px] font-bd-street-sign">
             {Intl.NumberFormat().format(totalJoin?.data)}
           </p>
           <Flex
@@ -78,9 +78,13 @@ export default function Mobile() {
             align="center"
             className="gap-1 -translate-y-0.5"
           >
-            <FaUsers className="text-[#892700] lg:text-3xl md:text-2xl text-[15px]" />
-            <span className="text-[#892700] font-semibold lg:text-lg md:text-sm text-[11px] uppercase">
-              người tham gia
+            <Image
+              src={TotalDrawImg}
+              preview={false}
+              alt="background-none-light"
+            />
+            <span className="text-[#F6EEBA] font-semibold lg:text-lg md:text-sm text-[11px] uppercase">
+              tổng số phiếu
             </span>
           </Flex>
         </Flex>

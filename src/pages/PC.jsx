@@ -17,6 +17,7 @@ import CommentsMobile from "../components/CommentsMobileModal";
 // import MissionDropdown from "../components/MissionDropdown";
 // import DeviceProvider from "../contexts/ResponsiveContext";
 import MissionTable from "../components/MissionTable";
+import TotalDrawImg from "../assets/total-draw.png";
 
 export default function PC() {
   const { totalJoin } = useTotalJoin();
@@ -72,7 +73,7 @@ export default function PC() {
         </Flex>
 
         <Flex justify="center" align="center" className="w-full gap-5">
-          <p className="text-[#892700] text-4xl font-bd-street-sign">
+          <p className="text-[#F6EEBA] text-4xl font-bd-street-sign">
             {Intl.NumberFormat().format(totalJoin?.data)}
           </p>
           <Flex
@@ -80,9 +81,13 @@ export default function PC() {
             align="center"
             className="gap-1 -translate-y-0.5"
           >
-            <FaUsers className="text-[#892700] text-2xl" />
-            <span className="text-[#892700] font-semibold text-lg uppercase">
-              người tham gia
+            <Image
+              src={TotalDrawImg}
+              preview={false}
+              alt="background-none-light"
+            />
+            <span className="text-[#F6EEBA] font-semibold text-lg uppercase">
+              tổng số phiếu
             </span>
           </Flex>
         </Flex>
