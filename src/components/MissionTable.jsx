@@ -12,26 +12,27 @@ function AcceptButton({
   isCompleted,
   missionType,
   missionGoal,
-  hide,
+  disabled,
 }) {
   const { mutate, isPending } = useMissionComplete();
   return (
-    !hide && (
-      <CustomButton
-        label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
-        active={isAvailableToAccept && !isCompleted && !isPending}
-        className={`${
-          isCompleted ? "px-4" : "px-6"
-        } !text-[13px] cursor-pointer h-[30px] max-[426px]:h-[25px] my-auto`}
-        onClick={() =>
-          !isCompleted &&
-          isAvailableToAccept &&
-          !isPending &&
-          mutate({ missionType, missionGoal })
-        }
-        disabled={isPending}
-      />
-    )
+    <CustomButton
+      label={`${isCompleted ? "Đã Nhận" : "Nhận"}`}
+      active={isAvailableToAccept && !isCompleted && !isPending}
+      className={`${
+        isCompleted ? "px-4" : "px-6"
+      } md:!text-[17px] !text-[13px] cursor-pointer h-[30px] max-[426px]:h-[25px] my-auto`}
+      onClick={
+        !disabled
+          ? () =>
+              !isCompleted &&
+              isAvailableToAccept &&
+              !isPending &&
+              mutate({ missionType, missionGoal })
+          : () => {}
+      }
+      disabled={disabled}
+    />
   );
 }
 
@@ -130,7 +131,7 @@ export default function MissionTable() {
                 isAvailableToAccept={isAvailableToAccept}
                 missionType={missionType}
                 missionGoal={missionGoal}
-                hide={!isAuthenticated}
+                disabled={!isAuthenticated}
               />
             </Flex>
           );
